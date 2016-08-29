@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>国控接口监控 | Jemes Zhou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="#国控国大接口数据实时报表(2016/02/29)
+8.1.    操作步骤：          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国控接口监控">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/国控接口监控/index.html">
+<meta property="og:site_name" content="Jemes Zhou">
+<meta property="og:description" content="#国控国大接口数据实时报表(2016/02/29)
+8.1.    操作步骤：          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次">
+<meta property="og:updated_time" content="2016-08-29T08:32:39.046Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="国控接口监控">
+<meta name="twitter:description" content="#国控国大接口数据实时报表(2016/02/29)
+8.1.    操作步骤：          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次">
+    
+
+    
+        <link rel="alternate" href="/" title="Jemes Zhou" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jemes Zhou</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/head.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/head.jpg" />
+            <h2 id="name">Jemes Zhou</h2>
+            <h3 id="title">一天一小步,人生一大步</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>ShangHai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/JemesZhou/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                9
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/JemesZhou/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-国控接口监控" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            国控接口监控
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/08/29/国控接口监控/">
+            <time datetime="2016-08-29T08:32:20.000Z" itemprop="datePublished">2016-08-29</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#国控国大接口数据实时报表(2016/02/29)</p>
+<p>8.1.    操作步骤：<br>          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，<br>查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。<br>（1）.如果接口类型是AR类型：输入对应的批名，依次执行以下sql，查看对应的结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-<span class="number">-0.</span>收集批处理状态</div><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.analyse_ar_batch;</div><div class="line">END;</div></pre></td></tr></table></figure>
+<p>–1.ar事务处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_arifsa_history h</div><div class="line"> WHERE <span class="number">1</span> = <span class="number">1</span></div><div class="line">      /*AND h.store = <span class="number">101812</span></div><div class="line">      AND h.day = <span class="number">17</span></div><div class="line">      AND h.store_day_seq_no = <span class="number">32029536</span></div><div class="line">      AND h.tran_type = <span class="string">'DCLOSE'</span>*/</div><div class="line">   AND h.group_name LIKE <span class="string">'MOMR1086_20160302001%'</span></div><div class="line">   AND h.error_flag = <span class="string">'E'</span>;</div></pre></td></tr></table></figure></p>
+<p>–2.查找所有的批处理状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_ar_batch_monitor t</div><div class="line"> WHERE t.org_code = <span class="number">1079</span>;</div><div class="line">--将想要单独处理的批次使用<span class="number">10</span>以外的序列更新进去</div><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.update_ar_process_seq(<span class="string">'MOMR1086_20160302001'</span>,</div><div class="line">                                                  <span class="number">12</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">UPDATE cmx_ar_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">22</span></div><div class="line"> WHERE t.org_code = <span class="number">1079</span></div><div class="line">      --AND t.process_type = <span class="string">'R'</span></div><div class="line">   AND t.group_name NOT IN (<span class="string">'MOMR1079_20150811001'</span>);</div><div class="line">```  </div><div class="line">-<span class="number">-3.</span>调用程序处理批处理</div><div class="line">```python</div><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.process_ar_batch(<span class="number">12</span>);</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+<p>–4.查看处理结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_ar_batch_monitor t</div><div class="line"> WHERE t.group_name = <span class="string">'MOMW1065_201507150030715IC00'</span>;</div><div class="line">--</div><div class="line">SELECT *</div><div class="line">  FROM cmx_ar_batch_monitor t</div><div class="line"> WHERE t.process_seq = <span class="number">20</span>;</div><div class="line"></div><div class="line">UPDATE cmx_ar_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">15</span></div><div class="line"> WHERE t.stage1_cnt = <span class="number">0</span>;</div></pre></td></tr></table></figure></p>
+<p>（2）. 如果接口类型是ap类型，对应相对的批号和ou，依次执行以下sql查看相应的结果。<br>–0.收集批处理状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.analyse_ap_batch;</div><div class="line">END;</div><div class="line"></div><div class="line">-<span class="number">-1.</span>查找所有的批处理状态</div><div class="line">SELECT *</div><div class="line">  FROM cmx_ap_batch_monitor t</div><div class="line"> WHERE t.org_code IN (<span class="number">1065</span>);</div><div class="line">SELECT *</div><div class="line">  FROM cmx_ap_batch_monitor t</div><div class="line"> WHERE t.stage1_cnt = <span class="number">0</span></div><div class="line">   AND t.trx_line_cnt = <span class="number">0</span>;</div><div class="line"></div><div class="line">UPDATE cmx_ap_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">15</span></div><div class="line"> WHERE t.stage1_cnt = <span class="number">0</span></div><div class="line">   AND t.trx_line_cnt = <span class="number">0</span>;</div><div class="line">SELECT *</div><div class="line">  FROM cmx_arif_ebs_history h</div><div class="line"> WHERE h.group_name = <span class="string">'MOMW1092_201506240010623WR00'</span>;</div></pre></td></tr></table></figure></p>
+<p>–将想要单独处理的批次使用10以外的序列更新进去<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.update_ap_process_seq</div><div class="line">(<span class="string">'1090_PD0036_NEWREIM_AP20160216090035'</span>, <span class="number">35</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">UPDATE cmx_ap_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">25</span></div><div class="line"> WHERE t.trx_line_cnt = <span class="number">0</span>;</div><div class="line"></div><div class="line">UPDATE cmx_ap_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">35</span></div><div class="line"> WHERE t.org_code = <span class="number">1065</span></div><div class="line">   AND t.process_type = <span class="string">'R'</span></div><div class="line">   AND t.group_name IN (<span class="string">'MOMR1092_20150618001'</span>,</div><div class="line">                        <span class="string">'MOMR1092_20150617001'</span>,</div><div class="line">                        <span class="string">'MOMR1092_20150619001'</span>);</div></pre></td></tr></table></figure></p>
+<p>–2.调用程序处理批处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.process_ap_batch(<span class="number">35</span>);</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+<p>–3.查看处理结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_ap_batch_monitor t</div><div class="line"> WHERE t.group_name = <span class="string">'MOMR1092_20150612001'</span>;</div><div class="line">--</div></pre></td></tr></table></figure></p>
+<p>（3）. 如果接口类型是gl类型，对应相对的批号和ou，依次执行以下sql查看相应的结果。<br>–0.收集批处理状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.analyse_gl_batch;</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+<p>–1.查找所有的批处理状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_gl_batch_monitor t</div><div class="line"> WHERE t.org_code = <span class="number">1087</span>;</div></pre></td></tr></table></figure></p>
+<p>–将想要单独处理的批次使用10以外的序列更新进去<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.update_gl_process_seq</div><div class="line">(<span class="string">'2105_20151130_GL20151202072505'</span>, <span class="number">15</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">UPDATE cmx_gl_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">16</span></div><div class="line"> WHERE t.org_code = <span class="number">1087</span></div><div class="line">      --   AND t.process_type = <span class="string">'R'</span></div><div class="line">   AND t.group_name IN (<span class="string">'1087_20150818_GL20150821065423'</span>);</div></pre></td></tr></table></figure></p>
+<p>–2.调用程序处理批处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.process_gl_batch(<span class="number">15</span>);</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+<p>–3.查看处理结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_gl_batch_monitor t</div><div class="line"> WHERE t.group_name = <span class="string">'MOMR1092_20150612001'</span>;</div><div class="line">每月月初查看未开区间</div><div class="line">SELECT u.attribute1,</div><div class="line">       hou.name,</div><div class="line">       le.name,</div><div class="line">       decode(s.application_id,</div><div class="line">              <span class="number">101</span>,</div><div class="line">              <span class="string">'总账'</span>,</div><div class="line">              <span class="number">200</span>,</div><div class="line">              <span class="string">'应付'</span>,</div><div class="line">              <span class="number">222</span>,</div><div class="line">              <span class="string">'应收'</span>) 应用,</div><div class="line">       fl.meaning,</div><div class="line">       s.*</div><div class="line">  FROM gl_period_statuses    s,</div><div class="line">       gl_ledgers            le,</div><div class="line">       fnd_lookups           fl,</div><div class="line">       hr_operating_units    hou,</div><div class="line">       hr_organization_units u</div><div class="line"> WHERE s.start_date = trunc(SYSDATE,</div><div class="line">                            <span class="string">'mm'</span>)</div><div class="line">   AND s.application_id IN (<span class="number">101</span>,</div><div class="line">                            <span class="number">200</span>,</div><div class="line">                            <span class="number">222</span>)</div><div class="line">   AND le.ledger_id = s.set_of_books_id</div><div class="line">   AND le.name LIKE <span class="string">'R%'</span></div><div class="line">   AND instr(le.name,</div><div class="line">             <span class="string">'CON'</span>) = <span class="number">0</span></div><div class="line">   AND fl.lookup_type = <span class="string">'OKL_PERIOD_STATUS'</span></div><div class="line">   AND fl.lookup_code = s.closing_status</div><div class="line">   AND s.closing_status &lt;&gt; <span class="string">'O'</span></div><div class="line">   AND hou.set_of_books_id = le.ledger_id</div><div class="line">   AND u.organization_id = hou.organization_id</div><div class="line">   AND u.attribute1 IS NOT NULL</div><div class="line"> ORDER BY le.ledger_id;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/08/29/国控接口监控/" data-id="cisfsi4f70008tk0xzzv2b80n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/08/29/国控接口监控/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/29/国控接口监控/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/08/29/create-table/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    create table
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/08/29/Oracle-FROM-开发注意/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Oracle FROM 开发注意</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/国控34报表/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/国控34报表/" class="title">国控34报表</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:34:49.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/create-table/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/create-table/" class="title">create table</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:33:32.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/国控接口监控/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/国控接口监控/" class="title">国控接口监控</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:32:20.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/Oracle-FROM-开发注意/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/Oracle-FROM-开发注意/" class="title">Oracle FROM 开发注意</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:30:30.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/FORM开发步骤/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/FORM开发步骤/" class="title">FORM开发步骤</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:29:01.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 Jemes Zhou<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://yoursite.com/2016/08/29/国控接口监控/';
+        
+        this.page.identifier = '国控接口监控';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

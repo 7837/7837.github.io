@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Form Development | Jemes Zhou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="FORM开发相关触发器(2015/09/20)2.1.    FORM主要触发器2.1.1.    常用触发器相关记录记录form开发中常用的触发器相关介绍，已便后期触发器的调用。1.Form触发器执行顺序：打开form时候的出发顺序123456PRE-FORM，PRE-BLOCK(BLOCK级)，WHEN-NEW-FORM-INSTANCE，WHEN-NEW-BLOCK-INSTANCE，WHE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Form Development">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/Form-Development/index.html">
+<meta property="og:site_name" content="Jemes Zhou">
+<meta property="og:description" content="FORM开发相关触发器(2015/09/20)2.1.    FORM主要触发器2.1.1.    常用触发器相关记录记录form开发中常用的触发器相关介绍，已便后期触发器的调用。1.Form触发器执行顺序：打开form时候的出发顺序123456PRE-FORM，PRE-BLOCK(BLOCK级)，WHEN-NEW-FORM-INSTANCE，WHEN-NEW-BLOCK-INSTANCE，WHE">
+<meta property="og:updated_time" content="2016-08-29T08:27:13.132Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Form Development">
+<meta name="twitter:description" content="FORM开发相关触发器(2015/09/20)2.1.    FORM主要触发器2.1.1.    常用触发器相关记录记录form开发中常用的触发器相关介绍，已便后期触发器的调用。1.Form触发器执行顺序：打开form时候的出发顺序123456PRE-FORM，PRE-BLOCK(BLOCK级)，WHEN-NEW-FORM-INSTANCE，WHEN-NEW-BLOCK-INSTANCE，WHE">
+    
+
+    
+        <link rel="alternate" href="/" title="Jemes Zhou" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jemes Zhou</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/head.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/head.jpg" />
+            <h2 id="name">Jemes Zhou</h2>
+            <h3 id="title">一天一小步,人生一大步</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>ShangHai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/JemesZhou/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                9
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/JemesZhou/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Form-Development" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Form Development
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/08/29/Form-Development/">
+            <time datetime="2016-08-29T08:25:44.000Z" itemprop="datePublished">2016-08-29</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="FORM开发相关触发器-2015-09-20"><a href="#FORM开发相关触发器-2015-09-20" class="headerlink" title="FORM开发相关触发器(2015/09/20)"></a>FORM开发相关触发器(2015/09/20)</h2><p>2.1.    FORM主要触发器<br>2.1.1.    常用触发器相关记录<br>记录form开发中常用的触发器相关介绍，已便后期触发器的调用。<br>1.Form触发器执行顺序：<br>打开form时候的出发顺序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PRE-FORM，</div><div class="line">PRE-BLOCK(BLOCK级)，</div><div class="line">WHEN-NEW-FORM-INSTANCE，</div><div class="line">WHEN-NEW-BLOCK-INSTANCE，</div><div class="line">WHEN-NEW-RECORD-INSTANCE，</div><div class="line">WHEN-NEW-ITEM-INSTANC。</div></pre></td></tr></table></figure></p>
+<p>2.当填写一行记录完成后，光标移动到下一条记录的时候：<br>参考文档（<a href="http://wenku.baidu.com/link?url=v6y-2Lk_Tzy56ZpDq8I3eR8vXno0JNb6tL81-XpkhsuwGZ7oPF3knbfvgpOGMoGa2fdhNwgLs25PhfXW_KkspD0V_CcsrniRKeyeCnYHi5i）" target="_blank" rel="external">http://wenku.baidu.com/link?url=v6y-2Lk_Tzy56ZpDq8I3eR8vXno0JNb6tL81-XpkhsuwGZ7oPF3knbfvgpOGMoGa2fdhNwgLs25PhfXW_KkspD0V_CcsrniRKeyeCnYHi5i）</a><br>WHEN-VALIDATE-RECORD（:SYSTEM.CURSOR_RECORD用来写显示当前记录行状态）。<br>WHEN-NEW-RECORD-INSTANCE，WHEN-NEW-ITEM-INSTANCE。</p>
+<p>3.当点击保存时<br>WHEN-VALIDATE-RECORD（将页面上的所有数据提交到数据库，若页面有重复数据，则提交第一次时成功但只是将数据先写到数据库中一类似临时表的地方，在提交第二条重复记录的时候报错，执行事务回滚，原来执行成功的指令也将被撤销）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">POST-INSERT</div><div class="line">KEY-COMMIT</div><div class="line">WHEN-NEW-ITEM-INSTANCE</div></pre></td></tr></table></figure>
+<p>4.当光标移动到当前数据块中已经显示的行上<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">WHEN-REMOVE-RECORD（当离开当前记录行）</div><div class="line">WHEN-NEW-RECORD-INSTANCE（当光标输入新的记录行）</div><div class="line">ON-LOCK（当锁定某项并修改时）</div></pre></td></tr></table></figure></p>
+<p>5.选中LOV列表<br>WHEN-NEW-ITEM-INSTANCE，KEY-LISTVAL<br>6.FORM切换到当前窗体时<br>WHEN-FORM-NAVIGATE，WHEN-NEW-ITEM-INSTANCE</p>
+<hr>
+<h2 id="上传下载相关-2015-09-20"><a href="#上传下载相关-2015-09-20" class="headerlink" title="上传下载相关(2015/09/20)"></a>上传下载相关(2015/09/20)</h2><p>3.1.    上传下载知识点归纳<br>3.1.1.    上传操作<br>参考form：cmx_region_adjfind.fmb<br>（1）. 加载对象文件WEBUTIL，OG_VA，OG_STANDARD_NEW，OG_TOOLBAR<br>（2）. 加载库文件WEBUTIL，RMBLIB,STAND45，RP2RRO,ARIIFLIB,MESSGE45。<br>（3）.新建windows，选择Visual Attribute Group：WINDOW。<br>（4）.新建一个上传的画布，用来存放相应的错误信息。（参考upload.fmb）</p>
+<p>（5）.界面上添加导出按钮。为按钮添加触发器，连接到update的form。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">WHEN-BUTTON-PRESSED：</div><div class="line">declare</div><div class="line">PL_id      PARAMLIST;</div><div class="line">BEGIN</div><div class="line">P_DESTROY_PARAMETER_LIST(<span class="string">'cmz_region_adjfind'</span>);</div><div class="line"> PL_id := Create_Parameter_List(<span class="string">'cmz_region_adjfind'</span>);</div><div class="line">Add_Parameter(PL_id, <span class="string">'PM_UPLOAD_OBJECT'</span>,  TEXT_PARAMETER,</div><div class="line">                 <span class="string">'REGION_INVADJ'</span>);</div></pre></td></tr></table></figure></p>
+<p>– 打开正常维护界面<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Open_Form(<span class="string">'cmx_upload'</span>,</div><div class="line">ACTIVATE,</div><div class="line">SESSION,</div><div class="line">PL_id);</div><div class="line">EXCEPTION</div><div class="line">when FORM_TRIGGER_FAILURE then</div><div class="line"><span class="keyword">raise</span>;</div><div class="line">when OTHERS then</div><div class="line">emessage(SQLERRM);</div><div class="line"><span class="keyword">raise</span> FORM_TRIGGER_FAILURE;</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+<p>（6）.通过Add_Parameter，传递一个参数，调用相应的验证方法。<br>（参考CMX_DATA_IMP_SQL.cmx_region_invadj_sql）。生成单号递增随机数方法：SELECT Cmx_inv_adj_head_S.NEXTVAL INTO L_REQ_NO FROM DUAL。<br>3.1.2.    导出操作<br>参考form：cmx_region_invadj.fmb。<br>（1）. 加载对象文件WEBUTIL，OG_VA，OG_STANDARD_NEW，OG_TOOLBAR<br>（2）. 加载库文件WEBUTIL,RMBLIB,STAND45,RP2RRO,ARIIFLIB,MESSGE45。<br>（3）.新建windows，选择Visual Attribute Group：WINDOW。<br>（4）.新建BLOG 包含导出的几个元素：<br>（5）.导出地址选择器，添加触发器：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">PROCEDURE pb_filepath_pressed IS</div><div class="line">  l_filename VARCHAR2(<span class="number">300</span>);</div><div class="line">BEGIN</div><div class="line">  l_filename := webutil_file.file_save_dialog( --directory_name =&gt; :parameter.user_home,</div><div class="line"> file_name   =&gt; to_char(SYSDATE,  <span class="string">'YYYY-MM-DD'</span>) || <span class="string">'_区域库存调整信息'</span> || <span class="string">'.csv'</span>, file_filter =&gt; NULL, title       =&gt; <span class="string">'请选择要保存的文件名称'</span>);</div><div class="line">copy(l_filename,<span class="string">'b_export.di_filepath'</span>);</div><div class="line">  END pb_filepath_pressed;</div></pre></td></tr></table></figure></p>
+<p>6.给导出按钮添加触发器（显示导出文件的格式和显示的格式等）：（注意头和行分开）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">DECLARE</div><div class="line">    --add by hand-zp <span class="number">2015</span><span class="number">-10</span><span class="number">-08</span></div><div class="line">    l_col_head       VARCHAR2(<span class="number">4000</span>);</div><div class="line">    l_col_concat     VARCHAR2(<span class="number">32767</span>);</div><div class="line">    l_sql            VARCHAR2(<span class="number">4000</span>);</div><div class="line">    l_blob           BLOB;</div><div class="line">    l_line_length    NUMBER;</div><div class="line">    l_po_line        VARCHAR2(<span class="number">4000</span>);</div><div class="line">    l_file_id        NUMBER;</div><div class="line">    l_error_msg      VARCHAR2(<span class="number">3000</span>);</div><div class="line">    l_block_name     VARCHAR2(<span class="number">100</span>) := <span class="string">'B_INV_ADJ_DETAIL'</span>;</div><div class="line">    l_form_name      VARCHAR2(<span class="number">100</span>) := <span class="string">'FM_CMX_REGION_INVADJ'</span>;</div><div class="line">    l_row            NUMBER := <span class="number">100</span>;</div><div class="line">    l_success        BOOLEAN;</div><div class="line">    l_filename       VARCHAR2(<span class="number">200</span>);</div><div class="line">    l_client_path    VARCHAR2(<span class="number">2000</span>);</div><div class="line">    l_file_seperator VARCHAR2(<span class="number">10</span>);</div><div class="line">    l_bar_width      NUMBER := <span class="number">0</span>;</div><div class="line">    l_rows_total     NUMBER;</div><div class="line">    l_view_name      VARCHAR2(<span class="number">50</span>) := get_block_property(<span class="string">'B_INV_ADJ_DETAIL'</span>,</div><div class="line">                                                        query_data_source_name);</div><div class="line">    l_length_grow    NUMBER;</div><div class="line"></div><div class="line">    l_field_name VARCHAR2(<span class="number">30</span>);</div><div class="line">    curs_block   VARCHAR2(<span class="number">30</span>);</div><div class="line">    curr_item_id item;</div><div class="line">    i            NUMBER; -- <span class="keyword">for</span> the first field;</div><div class="line">    r            NUMBER; -- For the first line;</div><div class="line">    l_line_num   NUMBER;</div><div class="line">    l_check_msg  VARCHAR2(<span class="number">200</span>);</div><div class="line"></div><div class="line">    TYPE type_cur IS REF CURSOR;</div><div class="line">    c_po_line type_cur;</div><div class="line">BEGIN</div><div class="line">    IF :B_EXPORT.DI_FILEPATH IS NULL THEN</div><div class="line">    </div><div class="line">        imessage(<span class="string">'请输入文件名'</span>);</div><div class="line">        RAISE form_trigger_failure;</div><div class="line">    END IF;</div><div class="line"></div><div class="line">    set_application_property(cursor_style, <span class="string">'BUSY'</span>);</div><div class="line">    synchronize;</div><div class="line">    SELECT cmx_ifupload_history_s.nextval INTO l_file_id FROM dual;</div><div class="line">    INSERT INTO cmx_upload_db_file</div><div class="line">        (file_content, upload_id, creation_date, created_by)</div><div class="line">    VALUES</div><div class="line">        (empty_blob(), l_file_id, SYSDATE, USER);</div><div class="line">    SELECT file_content</div><div class="line">      INTO l_blob</div><div class="line">      FROM cmx_upload_db_file</div><div class="line">     WHERE upload_id = l_file_id;</div><div class="line"></div><div class="line">    IF NOT cmx_invsoh_rep.open_file(l_blob, l_error_msg) THEN</div><div class="line">        imessage(l_error_msg);</div><div class="line">        RAISE form_trigger_failure;</div><div class="line">    END IF;</div><div class="line"></div><div class="line">    --</div><div class="line"></div><div class="line">    go_block(<span class="string">'B_INV_ADJ_DETAIL'</span>);</div><div class="line">    first_record;</div><div class="line">    r          := <span class="number">1</span>;</div><div class="line">    l_line_num := <span class="number">0</span>;</div><div class="line">    LOOP</div><div class="line">    </div><div class="line">        curs_block   := name_in(<span class="string">'SYSTEM.CURSOR_BLOCK'</span>);</div><div class="line">        l_field_name := get_block_property(curs_block, first_item);</div><div class="line">        i            := <span class="number">1</span>;</div><div class="line">        l_line_num   := l_line_num + <span class="number">1</span>;</div><div class="line">        LOOP</div><div class="line">            curr_item_id := find_item(curs_block || <span class="string">'.'</span> || l_field_name);</div><div class="line">        </div><div class="line">            IF get_item_property(curr_item_id, displayed) = <span class="string">'TRUE'</span> THEN</div><div class="line">                l_check_msg := get_item_property(curs_block || <span class="string">'.'</span> ||</div><div class="line">                                                 l_field_name,</div><div class="line">                                                 prompt_text);</div><div class="line">--区分item是否为空</div><div class="line">                <span class="keyword">if</span> l_check_msg <span class="keyword">not</span> <span class="keyword">in</span></div><div class="line">                   (<span class="string">'PB_ITEM_LOV'</span>, <span class="string">'PB_ITEM_DESC_LOV'</span>, <span class="string">'PB_LOT_LOV'</span>) then</div><div class="line">                    IF i = <span class="number">1</span> THEN</div><div class="line">                        l_col_concat := <span class="string">'"'</span> || name_in(curs_block || <span class="string">'.'</span> ||</div><div class="line">                                                       l_field_name) || <span class="string">'"'</span>;</div><div class="line"> --区分是表头还是表行      </div><div class="line">                        IF r = <span class="number">1</span> THEN</div><div class="line">                            l_col_head := <span class="string">'"'</span> ||</div><div class="line">                                          get_item_property(curs_block || <span class="string">'.'</span> ||</div><div class="line">                                                            l_field_name,</div><div class="line">                                                            prompt_text) || <span class="string">'"'</span>;</div><div class="line">                        END IF;</div><div class="line">                    </div><div class="line">                        i := <span class="number">0</span>;</div><div class="line">                    ELSE</div><div class="line">                        l_col_concat := l_col_concat || <span class="string">',"'</span> ||</div><div class="line">                                        name_in(curs_block || <span class="string">'.'</span> ||</div><div class="line">                                                l_field_name) || <span class="string">'"'</span>;</div><div class="line">                    </div><div class="line">                        IF r = <span class="number">1</span> THEN</div><div class="line">                            l_col_head := l_col_head || <span class="string">',"'</span> ||</div><div class="line">                                          get_item_property(curs_block || <span class="string">'.'</span> ||</div><div class="line">                                                            l_field_name,</div><div class="line">                                                            prompt_text) || <span class="string">'"'</span>;</div><div class="line">                        END IF;</div><div class="line">                    </div><div class="line">                    END IF;</div><div class="line">                </div><div class="line">                end <span class="keyword">if</span>;</div><div class="line">            END IF;</div><div class="line">            l_field_name := get_item_property(curr_item_id, nextitem);</div><div class="line">            EXIT WHEN l_field_name IS NULL;</div><div class="line">        </div><div class="line">        END LOOP;</div><div class="line">--调用cmx_invsoh_rep.write_line_to_blob写入文件</div><div class="line">        IF r = <span class="number">1</span> THEN</div><div class="line">            l_col_head := <span class="string">'调整单号'</span> || <span class="string">','</span> || l_col_head;</div><div class="line">            IF NOT cmx_invsoh_rep.write_line_to_blob (l_blob,</div><div class="line">                                                     l_col_head,</div><div class="line">                                                     l_error_msg) THEN</div><div class="line">                imessage(l_error_msg);</div><div class="line">                RAISE form_trigger_failure;</div><div class="line">            END IF;</div><div class="line">        </div><div class="line">        END IF;</div><div class="line">        r            := <span class="number">0</span>;</div><div class="line">        l_col_concat := name_in(<span class="string">'B_HEAD.INV_ADJ_NO'</span>) || <span class="string">','</span> || l_col_concat;</div><div class="line">        IF NOT cmx_invsoh_rep.write_line_to_blob(l_blob,</div><div class="line">                                                 l_col_concat,</div><div class="line">                                                 l_error_msg) THEN</div><div class="line">            imessage(l_error_msg);</div><div class="line">            RAISE form_trigger_failure;</div><div class="line">        END IF;</div><div class="line">    </div><div class="line">        IF :system.last_record = <span class="string">'FALSE'</span> THEN</div><div class="line">            next_record;</div><div class="line">        ELSE</div><div class="line">            EXIT;</div><div class="line">        END IF;</div><div class="line">    </div><div class="line">        <span class="keyword">if</span> mod(l_line_num, <span class="number">100</span>) = <span class="number">0</span> then</div><div class="line">            synchronize;</div><div class="line">        end <span class="keyword">if</span>;</div><div class="line">    END LOOP;</div><div class="line">    synchronize;</div><div class="line">    IF NOT cmx_invsoh_rep.close_file(l_blob, l_error_msg) THEN</div><div class="line">        imessage(l_error_msg);</div><div class="line">        RAISE form_trigger_failure;</div><div class="line">    END IF;</div><div class="line">    set_application_property(cursor_style, <span class="string">'DEFAULT'</span>);</div><div class="line"></div><div class="line">    l_success := webutil_file_transfer.db_to_client_with_progress(clientfile       =&gt; :B_EXPORT.DI_FILEPATH,</div><div class="line">                                                                  tablename        =&gt; <span class="string">'CMX_UPLOAD_DB_FILE'</span>,</div><div class="line">                                                                  columnname       =&gt; <span class="string">'FILE_CONTENT'</span>,</div><div class="line">                                                                  whereclause      =&gt; <span class="string">'UPLOAD_ID = '</span> ||</div><div class="line">                                                                                      l_file_id,</div><div class="line">                                                                  progresstitle    =&gt; <span class="string">'正在生成文件'</span>,</div><div class="line">                                                                  progresssubtitle =&gt; <span class="string">'请等待'</span>);</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/08/29/Form-Development/" data-id="cisfsi4eb0002tk0xfxbs50d2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/08/29/Form-Development/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/29/Form-Development/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/08/29/BIP-development/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    BIP development
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/08/29/pl-sql/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">pl sql</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/国控34报表/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/国控34报表/" class="title">国控34报表</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:34:49.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/create-table/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/create-table/" class="title">create table</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:33:32.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/国控接口监控/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/国控接口监控/" class="title">国控接口监控</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:32:20.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/Oracle-FROM-开发注意/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/Oracle-FROM-开发注意/" class="title">Oracle FROM 开发注意</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:30:30.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/FORM开发步骤/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/FORM开发步骤/" class="title">FORM开发步骤</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T08:29:01.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 Jemes Zhou<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://yoursite.com/2016/08/29/Form-Development/';
+        
+        this.page.identifier = 'Form-Development';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

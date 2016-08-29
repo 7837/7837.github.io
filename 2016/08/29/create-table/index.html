@@ -3,21 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | Jemes Zhou</title>
+    <title>create table | Jemes Zhou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="建表知识点 (2016/03/07)9.1.    注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/08/29/hello-world/index.html">
+<meta property="og:title" content="create table">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/create-table/index.html">
 <meta property="og:site_name" content="Jemes Zhou">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-08-29T03:20:45.520Z">
+<meta property="og:description" content="建表知识点 (2016/03/07)9.1.    注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym">
+<meta property="og:updated_time" content="2016-08-29T08:33:50.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="create table">
+<meta name="twitter:description" content="建表知识点 (2016/03/07)9.1.    注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym">
     
 
     
@@ -210,7 +207,7 @@ Quick">
 </aside>
 
             
-            <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-create-table" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -218,7 +215,7 @@ Quick">
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello World
+            create table
         </h1>
     
 
@@ -227,8 +224,8 @@ Quick">
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/08/29/hello-world/">
-            <time datetime="2016-08-29T03:20:45.520Z" itemprop="datePublished">2016-08-29</time>
+        <a href="/2016/08/29/create-table/">
+            <time datetime="2016-08-29T08:33:32.000Z" itemprop="datePublished">2016-08-29</time>
         </a>
     </div>
 
@@ -243,16 +240,9 @@ Quick">
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+            <h1 id="建表知识点-2016-03-07"><a href="#建表知识点-2016-03-07" class="headerlink" title="建表知识点 (2016/03/07)"></a>建表知识点 (2016/03/07)</h1><p>9.1.    注意点：<br>（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。<br>–包的同义词<br>–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">create <span class="keyword">or</span> replace synonym    rms.表  <span class="keyword">for</span>  cmx.表</div><div class="line">create <span class="keyword">or</span> replace public synonym cmx_store_item_sku For CMX.cmx_store_item_sku;</div><div class="line">--表的同义词</div><div class="line">create public synonym cmx_inv_adj_temp <span class="keyword">for</span> rms.cmx_inv_adj_temp;</div></pre></td></tr></table></figure></p>
+<p>（2）.建表三个步骤（表，同义词，序列）</p>
+<h3 id="建表（临时表temporary）"><a href="#建表（临时表temporary）" class="headerlink" title="建表（临时表temporary）"></a>建表（临时表temporary）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">create <span class="keyword">global</span> temporary table CMX.CMX_CHG_ITEM_LOC_QTY_TMP</div><div class="line">(</div><div class="line">  group_id      NUMBER,</div><div class="line">  REF_SOURCE    VARCHAR2(<span class="number">120</span>),</div><div class="line">  REF_NO        VARCHAR2(<span class="number">60</span>),</div><div class="line">  line_no       NUMBER,</div><div class="line">  TSF_NO        NUMBER,</div><div class="line">  item          VARCHAR2(<span class="number">2000</span>) <span class="keyword">not</span> null,</div><div class="line">  loc           NUMBER <span class="keyword">not</span> null,</div><div class="line">  lot           VARCHAR2(<span class="number">2000</span>),</div><div class="line">  INV_STATUS    NUMBER,</div><div class="line">  RESERVED_QTY  NUMBER</div><div class="line">)</div><div class="line">on commit preserve rows;</div><div class="line">--同义词</div><div class="line">create <span class="keyword">or</span> replace public synonym CMX_CHG_ITEM_LOC_QTY_TMP  <span class="keyword">for</span> CMX.CMX_CHG_ITEM_LOC_QTY_TMP;</div><div class="line">-- 建立序列</div><div class="line">create sequence CMX_CHG_ITEM_LOC_QTY_TMP_S</div><div class="line">minvalue <span class="number">1</span></div><div class="line">maxvalue <span class="number">999999999999999999999999999</span></div><div class="line">start <span class="keyword">with</span> <span class="number">10241</span></div><div class="line">increment by <span class="number">1</span></div><div class="line">cache <span class="number">20</span>;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -262,7 +252,7 @@ Quick">
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/08/29/hello-world/" data-id="cisfsi4es0005tk0x8aq630vi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2016/08/29/create-table/" data-id="cisfsi4ek0004tk0xcpcwnuc7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -330,7 +320,7 @@ Quick">
 
             
     
-        <a href="http://yoursite.com/2016/08/29/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/29/hello-world/">评论</a>
+        <a href="http://yoursite.com/2016/08/29/create-table/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/29/create-table/">评论</a>
     
 
         </footer>
@@ -339,15 +329,20 @@ Quick">
         
 <nav id="article-nav">
     
-        <a href="/2016/08/29/pl-sql/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/08/29/国控34报表/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    pl sql
+                    国控34报表
                 
             </div>
         </a>
     
+    
+        <a href="/2016/08/29/国控接口监控/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">国控接口监控</div>
+        </a>
     
 </nav>
 
@@ -525,9 +520,9 @@ Quick">
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://yoursite.com/2016/08/29/hello-world/';
+            this.page.url = 'http://yoursite.com/2016/08/29/create-table/';
         
-        this.page.identifier = 'hello-world';
+        this.page.identifier = 'create-table';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
