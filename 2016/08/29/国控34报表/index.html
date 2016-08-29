@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html>
 <head>
-    <meta charset="utf-8">
-    
-    <title>国控34报表 | Jemes Zhou</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="34号报表 (2016/03/07)10.1.    执行步骤：（1）.34号报表每个月月初快照生成后手动刷新，依照下面sql一次执行，每次执行查看相应的8个JOB，JOB运行成功后执行下一步，完成后反馈。–查询job，用来job是否生成成功1234567891011121314151617181920212223242526272829303132333435363738394041424344">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>国控34报表 | Jemes Zhou</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="34号报表 (2016/03/07)10.1.    执行步骤：（1）.34号报表每个月月初快照生成后手动刷新，依照下面sql一次执行，每次执行查看相应的8个JOB，JOB运行成功后执行下一步，完成后反馈。–查询job，用来job是否生成成功1234567891011121314151617181920212223242526272829303132333435363738394041424344">
 <meta property="og:type" content="article">
 <meta property="og:title" content="国控34报表">
 <meta property="og:url" content="http://yoursite.com/2016/08/29/国控34报表/index.html">
@@ -15,542 +16,361 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="国控34报表">
 <meta name="twitter:description" content="34号报表 (2016/03/07)10.1.    执行步骤：（1）.34号报表每个月月初快照生成后手动刷新，依照下面sql一次执行，每次执行查看相应的8个JOB，JOB运行成功后执行下一步，完成后反馈。–查询job，用来job是否生成成功1234567891011121314151617181920212223242526272829303132333435363738394041424344">
-    
-
-    
-        <link rel="alternate" href="/" title="Jemes Zhou" type="application/atom+xml" />
-    
-
-    
-
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
-    
-    
-    
-    
-    
-
-
+  
+    <link rel="alternative" href="/atom.xml" title="Jemes Zhou" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                <i class="logo"></i>
-                <span class="site-title">Jemes Zhou</span>
-            </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/">Home</a>
-                
-                    <a class="main-nav-link" href="/archives">Archives</a>
-                
-                    <a class="main-nav-link" href="/categories">Categories</a>
-                
-                    <a class="main-nav-link" href="/tags">Tags</a>
-                
-                    <a class="main-nav-link" href="/about">About</a>
-                
-            </nav>
-            
-                
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/head.jpg" />
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="0" class="js-avatar">
+			
+		</a>
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Jemes Zhou</a></h1>
+		</hgroup>
 
-</div>
-        </div>
-    </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
-                
-                    <td><a class="main-nav-link" href="/">Home</a></td>
-                
-                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
-                
-                    <td><a class="main-nav-link" href="/about">About</a></td>
-                
-                <td>
-                    
-    <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-    </div>
+		
+		<p class="header-subtitle">为梦想加油</p>
+		
 
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>A propos</li>
+						
+					</ul>
+				</div>
+			</div>
+		
 
-        <div class="outer">
-            
-                
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
 
-<aside id="profile">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/head.jpg" />
-            <h2 id="name">Jemes Zhou</h2>
-            <h3 id="title">一天一小步,人生一大步</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>ShangHai, China</span>
-            <a id="follow" target="_blank" href="https://github.com/JemesZhou/">关注我</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                10
-                <span>文章</span>
-            </div>
-            <div class="article-info-block">
-                0
-                <span>标签</span>
-            </div>
-        </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="https://github.com/JemesZhou/" target="_blank" title="github" class=tooltip>
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="twitter" class=tooltip>
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="facebook" class=tooltip>
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="dribbble" class=tooltip>
-                            <i class="fa fa-dribbble"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="rss" class=tooltip>
-                            <i class="fa fa-rss"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-        
-    </div>
-</aside>
-
-            
-            <section id="main"><article id="post-国控34报表" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            国控34报表
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/29/国控34报表/">
-            <time datetime="2016-08-29T08:34:49.000Z" itemprop="datePublished">2016-08-29</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="34号报表-2016-03-07"><a href="#34号报表-2016-03-07" class="headerlink" title="34号报表 (2016/03/07)"></a>34号报表 (2016/03/07)</h1><p>10.1.    执行步骤：<br>（1）.34号报表每个月月初快照生成后手动刷新，依照下面sql一次执行，每次执行查看相应的8个JOB，JOB运行成功后执行下一步，完成后反馈。<br>–查询job，用来job是否生成成功<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM all_jobs j</div><div class="line"> ORDER BY j.job DESC;</div><div class="line">SELECT *</div><div class="line">  FROM dba_jobs_running;</div><div class="line"></div><div class="line">--STEP1执行脚本，输入前一月</div><div class="line">DECLARE</div><div class="line">  result1 BOOLEAN;</div><div class="line">  result3 BOOLEAN;</div><div class="line">BEGIN</div><div class="line">  --STEP1:数据准备</div><div class="line">  --p_refresh_month: 要刷新的期间</div><div class="line">  result1 := cmx     _refresh_34_pkg.job(p_refresh_month =&gt; <span class="string">'&amp;p_refresh_month'</span>);</div><div class="line">  --STEP3：库存成本数据执行脚本</div><div class="line">  result3 := cmx_034_inv_cost_update_pkg.job(p_refresh_month =&gt; <span class="string">'&amp;p_refresh_month'</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">--STEP2:数据准备</div><div class="line">DECLARE</div><div class="line">  result2 BOOLEAN;</div><div class="line">BEGIN</div><div class="line">  result2 := cmx_oper_purchase_balance_pkg.job;</div><div class="line">END;</div><div class="line">--STEP3：检查STEP2的JOB是否已完成</div><div class="line">SELECT *</div><div class="line">  FROM (SELECT COUNT(*) a</div><div class="line">          FROM cmx_payment_apply_tbl_34mth</div><div class="line">         WHERE <span class="number">1</span> = <span class="number">1</span></div><div class="line">           AND receive_amt IS NOT NULL) job_done,</div><div class="line">       </div><div class="line">       (SELECT COUNT(*) b</div><div class="line">          FROM cmx_payment_apply_tbl_34mth) all_date;</div><div class="line"></div><div class="line">--STEP4:若STEP3中的a=b，则代表JOB已完成，刷新<span class="number">34</span>号&amp;<span class="number">34</span>hd报表</div><div class="line">DECLARE</div><div class="line">  l_tran_month VARCHAR2(<span class="number">30</span>) := <span class="string">'&amp;tran_month'</span>; --交易年月（如<span class="number">2013</span><span class="number">-09</span>）</div><div class="line">  RESULT       BOOLEAN;</div><div class="line">  CURSOR csr_s IS</div><div class="line">    SELECT tbl.receive_amt,</div><div class="line">           tbl.out_amt,</div><div class="line">           tbl.store_sc_amt,</div><div class="line">           tbl.store_sc_amt2,</div><div class="line">           tbl.store_sc_bmt2,</div><div class="line">           tbl.store_sc_bmt,</div><div class="line">           tbl.wholesale_amt,</div><div class="line">           tbl.org_unit_id,</div><div class="line">           tbl.supplier</div><div class="line">      FROM rms.cmx_payment_apply_tbl_34mth tbl</div><div class="line">     WHERE tbl.tran_month = l_tran_month;</div><div class="line">BEGIN</div><div class="line">  FOR rec_s IN csr_s</div><div class="line">  LOOP</div><div class="line">    UPDATE cmx_payment_apply_tbl t</div><div class="line">       SET t.receive_amt   = rec_s.receive_amt,</div><div class="line">           t.out_amt       = rec_s.out_amt,</div><div class="line">           t.store_sc_amt  = rec_s.store_sc_amt,</div><div class="line">           t.store_sc_amt2 = rec_s.store_sc_amt2,</div><div class="line">           t.wholesale_amt = rec_s.wholesale_amt,</div><div class="line">           t.store_sc_bmt2 = rec_s.store_sc_bmt2,</div><div class="line">           t.store_sc_bmt  = rec_s.store_sc_bmt</div><div class="line">     WHERE t.org_unit_id = rec_s.org_unit_id</div><div class="line">       AND t.supplier = rec_s.supplier</div><div class="line">       AND t.tran_month = l_tran_month;</div><div class="line">  END LOOP;</div><div class="line">  COMMIT;</div><div class="line">  --刷新<span class="number">34</span>hd报表</div><div class="line">  RESULT := cmx_purchase_yiji_pkg.job2(<span class="string">'&amp;tran_month'</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">--STEP5.更新库存金额</div><div class="line">DECLARE</div><div class="line">  CURSOR csr_data IS</div><div class="line">    SELECT *</div><div class="line">      FROM cmx_payment_apply_tbl_yiji0828 t</div><div class="line">     WHERE t.tran_month = <span class="string">'&amp;tran_month'</span>;</div><div class="line">BEGIN</div><div class="line">  FOR rec IN csr_data</div><div class="line">  LOOP</div><div class="line">    UPDATE cmx_payment_apply_tbl_yiji t</div><div class="line">       SET t.wh_ohc_amt            = rec.wh_ohc_amt,</div><div class="line">           t.wh_ohc_amt_v          = rec.wh_ohc_amt_v,</div><div class="line">           t.store_cost_amt        = rec.store_cost_amt,</div><div class="line">           t.store_cost_amt_vat    = rec.store_cost_amt_vat,</div><div class="line">           t.store_jm_cost_amt     = rec.store_jm_cost_amt,</div><div class="line">           t.store_jm_cost_amt_vat = rec.store_jm_cost_amt_vat,</div><div class="line">           t.all_ohc_amt           = rec.all_ohc_amt,</div><div class="line">           t.all_ohc_amt_v         = rec.all_ohc_amt_v,</div><div class="line">           t.trans_date            = SYSDATE</div><div class="line">     WHERE t.supplier = rec.supplier</div><div class="line">       AND t.tran_month = <span class="string">'&amp;tran_month'</span>;</div><div class="line">  END LOOP;</div><div class="line">END;</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
 </div>
 
-    <a data-url="http://yoursite.com/2016/08/29/国控34报表/" data-id="cisfzfdkd00087otvwspcy21c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://yoursite.com/2016/08/29/国控34报表/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/29/国控34报表/">评论</a>
-    
-
-        </footer>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2016/08/29/租赁VPS搭建私人VPN/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    租赁VPS搭建私人VPN
-                
-            </div>
-        </a>
-    
-    
-        <a href="/2016/08/29/create-table/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">create table</div>
-        </a>
-    
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Jemes Zhou</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="0" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Jemes Zhou</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">为梦想加油</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
 
-
+      <div class="body-wrap"><article id="post-国控34报表" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/29/国控34报表/" class="article-date">
+  	<time datetime="2016-08-29T08:34:49.000Z" itemprop="datePublished">2016-08-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      国控34报表
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="34号报表-2016-03-07"><a href="#34号报表-2016-03-07" class="headerlink" title="34号报表 (2016/03/07)"></a>34号报表 (2016/03/07)</h1><p>10.1.    执行步骤：<br>（1）.34号报表每个月月初快照生成后手动刷新，依照下面sql一次执行，每次执行查看相应的8个JOB，JOB运行成功后执行下一步，完成后反馈。<br>–查询job，用来job是否生成成功<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM all_jobs j</div><div class="line"> ORDER BY j.job DESC;</div><div class="line">SELECT *</div><div class="line">  FROM dba_jobs_running;</div><div class="line"></div><div class="line">--STEP1执行脚本，输入前一月</div><div class="line">DECLARE</div><div class="line">  result1 BOOLEAN;</div><div class="line">  result3 BOOLEAN;</div><div class="line">BEGIN</div><div class="line">  --STEP1:数据准备</div><div class="line">  --p_refresh_month: 要刷新的期间</div><div class="line">  result1 := cmx     _refresh_34_pkg.job(p_refresh_month =&gt; <span class="string">'&amp;p_refresh_month'</span>);</div><div class="line">  --STEP3：库存成本数据执行脚本</div><div class="line">  result3 := cmx_034_inv_cost_update_pkg.job(p_refresh_month =&gt; <span class="string">'&amp;p_refresh_month'</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">--STEP2:数据准备</div><div class="line">DECLARE</div><div class="line">  result2 BOOLEAN;</div><div class="line">BEGIN</div><div class="line">  result2 := cmx_oper_purchase_balance_pkg.job;</div><div class="line">END;</div><div class="line">--STEP3：检查STEP2的JOB是否已完成</div><div class="line">SELECT *</div><div class="line">  FROM (SELECT COUNT(*) a</div><div class="line">          FROM cmx_payment_apply_tbl_34mth</div><div class="line">         WHERE <span class="number">1</span> = <span class="number">1</span></div><div class="line">           AND receive_amt IS NOT NULL) job_done,</div><div class="line">       </div><div class="line">       (SELECT COUNT(*) b</div><div class="line">          FROM cmx_payment_apply_tbl_34mth) all_date;</div><div class="line"></div><div class="line">--STEP4:若STEP3中的a=b，则代表JOB已完成，刷新<span class="number">34</span>号&amp;<span class="number">34</span>hd报表</div><div class="line">DECLARE</div><div class="line">  l_tran_month VARCHAR2(<span class="number">30</span>) := <span class="string">'&amp;tran_month'</span>; --交易年月（如<span class="number">2013</span><span class="number">-09</span>）</div><div class="line">  RESULT       BOOLEAN;</div><div class="line">  CURSOR csr_s IS</div><div class="line">    SELECT tbl.receive_amt,</div><div class="line">           tbl.out_amt,</div><div class="line">           tbl.store_sc_amt,</div><div class="line">           tbl.store_sc_amt2,</div><div class="line">           tbl.store_sc_bmt2,</div><div class="line">           tbl.store_sc_bmt,</div><div class="line">           tbl.wholesale_amt,</div><div class="line">           tbl.org_unit_id,</div><div class="line">           tbl.supplier</div><div class="line">      FROM rms.cmx_payment_apply_tbl_34mth tbl</div><div class="line">     WHERE tbl.tran_month = l_tran_month;</div><div class="line">BEGIN</div><div class="line">  FOR rec_s IN csr_s</div><div class="line">  LOOP</div><div class="line">    UPDATE cmx_payment_apply_tbl t</div><div class="line">       SET t.receive_amt   = rec_s.receive_amt,</div><div class="line">           t.out_amt       = rec_s.out_amt,</div><div class="line">           t.store_sc_amt  = rec_s.store_sc_amt,</div><div class="line">           t.store_sc_amt2 = rec_s.store_sc_amt2,</div><div class="line">           t.wholesale_amt = rec_s.wholesale_amt,</div><div class="line">           t.store_sc_bmt2 = rec_s.store_sc_bmt2,</div><div class="line">           t.store_sc_bmt  = rec_s.store_sc_bmt</div><div class="line">     WHERE t.org_unit_id = rec_s.org_unit_id</div><div class="line">       AND t.supplier = rec_s.supplier</div><div class="line">       AND t.tran_month = l_tran_month;</div><div class="line">  END LOOP;</div><div class="line">  COMMIT;</div><div class="line">  --刷新<span class="number">34</span>hd报表</div><div class="line">  RESULT := cmx_purchase_yiji_pkg.job2(<span class="string">'&amp;tran_month'</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">--STEP5.更新库存金额</div><div class="line">DECLARE</div><div class="line">  CURSOR csr_data IS</div><div class="line">    SELECT *</div><div class="line">      FROM cmx_payment_apply_tbl_yiji0828 t</div><div class="line">     WHERE t.tran_month = <span class="string">'&amp;tran_month'</span>;</div><div class="line">BEGIN</div><div class="line">  FOR rec IN csr_data</div><div class="line">  LOOP</div><div class="line">    UPDATE cmx_payment_apply_tbl_yiji t</div><div class="line">       SET t.wh_ohc_amt            = rec.wh_ohc_amt,</div><div class="line">           t.wh_ohc_amt_v          = rec.wh_ohc_amt_v,</div><div class="line">           t.store_cost_amt        = rec.store_cost_amt,</div><div class="line">           t.store_cost_amt_vat    = rec.store_cost_amt_vat,</div><div class="line">           t.store_jm_cost_amt     = rec.store_jm_cost_amt,</div><div class="line">           t.store_jm_cost_amt_vat = rec.store_jm_cost_amt_vat,</div><div class="line">           t.all_ohc_amt           = rec.all_ohc_amt,</div><div class="line">           t.all_ohc_amt_v         = rec.all_ohc_amt_v,</div><div class="line">           t.trans_date            = SYSDATE</div><div class="line">     WHERE t.supplier = rec.supplier</div><div class="line">       AND t.tran_month = <span class="string">'&amp;tran_month'</span>;</div><div class="line">  END LOOP;</div><div class="line">END;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/29/租赁VPS搭建私人VPN/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          租赁VPS搭建私人VPN
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/29/create-table/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">create table</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="国控34报表" data-title="国控34报表" data-url="http://yoursite.com/2016/08/29/国控34报表/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Jemes Zhou
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
-
-    
-    </section>
-
-</section>
-            
-                <aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">最新文章</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/29/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/08/29/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2016-08-29T11:33:56.500Z" itemprop="datePublished">2016-08-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/29/租赁VPS搭建私人VPN/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/08/29/租赁VPS搭建私人VPN/" class="title">租赁VPS搭建私人VPN</a></p>
-                            <p class="item-date"><time datetime="2016-08-29T09:36:55.000Z" itemprop="datePublished">2016-08-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/29/国控34报表/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/08/29/国控34报表/" class="title">国控34报表</a></p>
-                            <p class="item-date"><time datetime="2016-08-29T08:34:49.000Z" itemprop="datePublished">2016-08-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/29/create-table/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/08/29/create-table/" class="title">create table</a></p>
-                            <p class="item-date"><time datetime="2016-08-29T08:33:32.000Z" itemprop="datePublished">2016-08-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/29/国控接口监控/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/08/29/国控接口监控/" class="title">国控接口监控</a></p>
-                            <p class="item-date"><time datetime="2016-08-29T08:32:20.000Z" itemprop="datePublished">2016-08-29</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-    
-        
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">10</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    
-        
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2016 Jemes Zhou<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
+  </div>
 </footer>
-        
+    </div>
     
-    <script>
-    var disqus_config = function () {
-        
-            this.page.url = 'http://yoursite.com/2016/08/29/国控34报表/';
-        
-        this.page.identifier = '国控34报表';
-    };
-    (function() { 
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-
-    
-        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
-    
-    
-
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
+  </div>
 </body>
 </html>
