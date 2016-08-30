@@ -85,18 +85,18 @@
 
 
 <meta name="description" content="#国控国大接口数据实时报表(2016/02/29)
-8.1.    操作步骤：          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次">
+##操作步骤：主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次执行以下sql，查看对应的结果。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="国控接口监控">
 <meta property="og:url" content="http://yoursite.com/2016/08/29/国控接口监控/index.html">
 <meta property="og:site_name" content="Jemes Zhou">
 <meta property="og:description" content="#国控国大接口数据实时报表(2016/02/29)
-8.1.    操作步骤：          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次">
-<meta property="og:updated_time" content="2016-08-30T03:50:00.935Z">
+##操作步骤：主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次执行以下sql，查看对应的结果。">
+<meta property="og:updated_time" content="2016-08-30T08:50:24.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="国控接口监控">
 <meta name="twitter:description" content="#国控国大接口数据实时报表(2016/02/29)
-8.1.    操作步骤：          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次">
+##操作步骤：主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。（1）.如果接口类型是AR类型：输入对应的批名，依次执行以下sql，查看对应的结果。">
 
 
 
@@ -290,7 +290,7 @@
 
       
         <p>#国控国大接口数据实时报表(2016/02/29)</p>
-<p>8.1.    操作步骤：<br>          主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，<br>查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。<br>（1）.如果接口类型是AR类型：输入对应的批名，依次执行以下sql，查看对应的结果。</p>
+<p>##操作步骤：<br>主要查看MOM传EBS财务数据，登录正是环境下BIP，选择报表EBS_INT_RESULT，选择excel导出接口数据，查询频率为每日，<br>查看正式表数据为0的数据查看结果，如果数据存在临时表，或者接口表中中，抛出问题，提交财务解决，如果三张表数据为空。<br>（1）.如果接口类型是AR类型：输入对应的批名，依次执行以下sql，查看对应的结果。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-<span class="number">-0.</span>收集批处理状态</div><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.analyse_ar_batch;</div><div class="line">END;</div></pre></td></tr></table></figure>
 <p>–1.ar事务处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_arifsa_history h</div><div class="line"> WHERE <span class="number">1</span> = <span class="number">1</span></div><div class="line">      /*AND h.store = <span class="number">101812</span></div><div class="line">      AND h.day = <span class="number">17</span></div><div class="line">      AND h.store_day_seq_no = <span class="number">32029536</span></div><div class="line">      AND h.tran_type = <span class="string">'DCLOSE'</span>*/</div><div class="line">   AND h.group_name LIKE <span class="string">'MOMR1086_20160302001%'</span></div><div class="line">   AND h.error_flag = <span class="string">'E'</span>;</div></pre></td></tr></table></figure></p>
 <p>–2.查找所有的批处理状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">SELECT *</div><div class="line">  FROM cmx_ar_batch_monitor t</div><div class="line"> WHERE t.org_code = <span class="number">1079</span>;</div><div class="line">--将想要单独处理的批次使用<span class="number">10</span>以外的序列更新进去</div><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.update_ar_process_seq(<span class="string">'MOMR1086_20160302001'</span>,</div><div class="line">                                                  <span class="number">12</span>);</div><div class="line">END;</div><div class="line"></div><div class="line">UPDATE cmx_ar_batch_monitor t</div><div class="line">   SET t.process_seq = <span class="number">22</span></div><div class="line"> WHERE t.org_code = <span class="number">1079</span></div><div class="line">      --AND t.process_type = <span class="string">'R'</span></div><div class="line">   AND t.group_name NOT IN (<span class="string">'MOMR1079_20150811001'</span>);</div><div class="line">```  </div><div class="line">-<span class="number">-3.</span>调用程序处理批处理</div><div class="line">```python</div><div class="line">BEGIN</div><div class="line">  cmx_int_batch_monitor_pkg.process_ar_batch(<span class="number">12</span>);</div><div class="line">END;</div></pre></td></tr></table></figure></p>

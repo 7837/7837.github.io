@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="建表知识点 (2016/03/07)9.1.    注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym">
+<meta name="description" content="建表知识点##注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym cmx_store_item_sku">
 <meta property="og:type" content="article">
 <meta property="og:title" content="create table">
 <meta property="og:url" content="http://yoursite.com/2016/08/29/create-table/index.html">
 <meta property="og:site_name" content="Jemes Zhou">
-<meta property="og:description" content="建表知识点 (2016/03/07)9.1.    注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym">
-<meta property="og:updated_time" content="2016-08-30T03:49:30.904Z">
+<meta property="og:description" content="建表知识点##注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym cmx_store_item_sku">
+<meta property="og:updated_time" content="2016-08-30T08:49:18.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="create table">
-<meta name="twitter:description" content="建表知识点 (2016/03/07)9.1.    注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym">
+<meta name="twitter:description" content="建表知识点##注意点：（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。–包的同义词–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了1234create or replace synonym    rms.表  for  cmx.表create or replace public synonym cmx_store_item_sku">
 
 
 
@@ -286,7 +286,7 @@
       
 
       
-        <h1 id="建表知识点-2016-03-07"><a href="#建表知识点-2016-03-07" class="headerlink" title="建表知识点 (2016/03/07)"></a>建表知识点 (2016/03/07)</h1><p>9.1.    注意点：<br>（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。<br>–包的同义词<br>–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">create <span class="keyword">or</span> replace synonym    rms.表  <span class="keyword">for</span>  cmx.表</div><div class="line">create <span class="keyword">or</span> replace public synonym cmx_store_item_sku For CMX.cmx_store_item_sku;</div><div class="line">--表的同义词</div><div class="line">create public synonym cmx_inv_adj_temp <span class="keyword">for</span> rms.cmx_inv_adj_temp;</div></pre></td></tr></table></figure></p>
+        <h1 id="建表知识点"><a href="#建表知识点" class="headerlink" title="建表知识点"></a>建表知识点</h1><p>##注意点：<br>（1）.所有表，包，序列，视图都需要建立同义词，理由参考java外部类。<br>–包的同义词<br>–表是健在cmx下的，需要在rms下为其建立一个同义词，这样，rms用户可以查询到你的表了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">create <span class="keyword">or</span> replace synonym    rms.表  <span class="keyword">for</span>  cmx.表</div><div class="line">create <span class="keyword">or</span> replace public synonym cmx_store_item_sku For CMX.cmx_store_item_sku;</div><div class="line">--表的同义词</div><div class="line">create public synonym cmx_inv_adj_temp <span class="keyword">for</span> rms.cmx_inv_adj_temp;</div></pre></td></tr></table></figure></p>
 <p>（2）.建表三个步骤（表，同义词，序列）</p>
 <h3 id="建表（临时表temporary）"><a href="#建表（临时表temporary）" class="headerlink" title="建表（临时表temporary）"></a>建表（临时表temporary）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">create <span class="keyword">global</span> temporary table CMX.CMX_CHG_ITEM_LOC_QTY_TMP</div><div class="line">(</div><div class="line">  group_id      NUMBER,</div><div class="line">  REF_SOURCE    VARCHAR2(<span class="number">120</span>),</div><div class="line">  REF_NO        VARCHAR2(<span class="number">60</span>),</div><div class="line">  line_no       NUMBER,</div><div class="line">  TSF_NO        NUMBER,</div><div class="line">  item          VARCHAR2(<span class="number">2000</span>) <span class="keyword">not</span> null,</div><div class="line">  loc           NUMBER <span class="keyword">not</span> null,</div><div class="line">  lot           VARCHAR2(<span class="number">2000</span>),</div><div class="line">  INV_STATUS    NUMBER,</div><div class="line">  RESERVED_QTY  NUMBER</div><div class="line">)</div><div class="line">on commit preserve rows;</div><div class="line">--同义词</div><div class="line">create <span class="keyword">or</span> replace public synonym CMX_CHG_ITEM_LOC_QTY_TMP  <span class="keyword">for</span> CMX.CMX_CHG_ITEM_LOC_QTY_TMP;</div><div class="line">-- 建立序列</div><div class="line">create sequence CMX_CHG_ITEM_LOC_QTY_TMP_S</div><div class="line">minvalue <span class="number">1</span></div><div class="line">maxvalue <span class="number">999999999999999999999999999</span></div><div class="line">start <span class="keyword">with</span> <span class="number">10241</span></div><div class="line">increment by <span class="number">1</span></div><div class="line">cache <span class="number">20</span>;</div></pre></td></tr></table></figure>
       
@@ -490,7 +490,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#建表知识点-2016-03-07"><span class="nav-number">1.</span> <span class="nav-text">建表知识点 (2016/03/07)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建表（临时表temporary）"><span class="nav-number">1.0.1.</span> <span class="nav-text">建表（临时表temporary）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#建表知识点"><span class="nav-number">1.</span> <span class="nav-text">建表知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建表（临时表temporary）"><span class="nav-number">1.0.1.</span> <span class="nav-text">建表（临时表temporary）</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

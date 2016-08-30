@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="#FORM开发步骤(2015/10/22)
-5.1.    Form开发步骤规范5.1.1.    相关记录通过标准模板创建form 步骤：12345678910111213141516171、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME3、 修改windows下的BLO">
+<meta name="description" content="#FORM开发步骤
+Form开发步骤规范相关记录通过标准模板创建form 步骤：12345678910111213141516171、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME3、 修改windows下的BLOCKNAME这个window，改属性里的名称xxx和titl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FORM开发步骤">
 <meta property="og:url" content="http://yoursite.com/2016/08/29/FORM开发步骤/index.html">
 <meta property="og:site_name" content="Jemes Zhou">
-<meta property="og:description" content="#FORM开发步骤(2015/10/22)
-5.1.    Form开发步骤规范5.1.1.    相关记录通过标准模板创建form 步骤：12345678910111213141516171、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME3、 修改windows下的BLO">
-<meta property="og:updated_time" content="2016-08-30T05:01:01.762Z">
+<meta property="og:description" content="#FORM开发步骤
+Form开发步骤规范相关记录通过标准模板创建form 步骤：12345678910111213141516171、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME3、 修改windows下的BLOCKNAME这个window，改属性里的名称xxx和titl">
+<meta property="og:updated_time" content="2016-08-30T09:01:15.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FORM开发步骤">
-<meta name="twitter:description" content="#FORM开发步骤(2015/10/22)
-5.1.    Form开发步骤规范5.1.1.    相关记录通过标准模板创建form 步骤：12345678910111213141516171、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME3、 修改windows下的BLO">
+<meta name="twitter:description" content="#FORM开发步骤
+Form开发步骤规范相关记录通过标准模板创建form 步骤：12345678910111213141516171、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME3、 修改windows下的BLOCKNAME这个window，改属性里的名称xxx和titl">
 
 
 
@@ -308,8 +308,8 @@
       
 
       
-        <p>#FORM开发步骤(2015/10/22)</p>
-<p>5.1.    Form开发步骤规范<br>5.1.1.    相关记录<br>通过标准模板创建form 步骤：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致</div><div class="line">2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME</div><div class="line">3、 修改windows下的BLOCKNAME这个window，改属性里的名称xxx和title</div><div class="line">4、 修改forms级触发器 pre_form, app_window.set_window_position('xxxx', 'FIRST_WINDOW');</div><div class="line">5、 修改forms级触发器when_new_form_instance，主要修改form名</div><div class="line">6、 修改program unit 下的app_custom中的close_window过程，if (wnd = 'xxx') then app_window.close_first_window;</div><div class="line">7、 创建数据块，设置item属性，是否可导航，非数据库item设置database item为no，显示在画布physical，prompt设置显示在画布上的属性</div><div class="line">8、 创建画布，一个window必需有且仅有一块主画布，设置画布的子类和放置窗口</div><div class="line">9、 设置form属性，第一个导航块</div><div class="line">10、 调用CUX_PLSQL_AUTOCREATE自动生成4个on触发器</div><div class="line">12、 定义function 应用开发员-&gt;功能</div><div class="line">功能： from名 用户功能名：菜单下可见（CUX_XXX）</div><div class="line">特性：类型选择form</div><div class="line">表单：功能、表单都用form名</div><div class="line">13、 加入到职责</div><div class="line">系统管理员-&gt;责任（通过责任名查出所属菜单名）</div><div class="line">应用产品-&gt;菜单-&gt;用户菜单名（用户可见）-&gt;继续查询子菜单-&gt;添加</div></pre></td></tr></table></figure></p>
+        <p>#FORM开发步骤</p>
+<p>Form开发步骤规范<br>相关记录<br>通过标准模板创建form 步骤：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、 拷贝cmx_test1.fmb，改名xxx.fmb，打开后把form名也改了，保持一致</div><div class="line">2、 删除标准块BLOCKNAME 、DETAILBLOCK和画布BLOCKNAME</div><div class="line">3、 修改windows下的BLOCKNAME这个window，改属性里的名称xxx和title</div><div class="line">4、 修改forms级触发器 pre_form, app_window.set_window_position('xxxx', 'FIRST_WINDOW');</div><div class="line">5、 修改forms级触发器when_new_form_instance，主要修改form名</div><div class="line">6、 修改program unit 下的app_custom中的close_window过程，if (wnd = 'xxx') then app_window.close_first_window;</div><div class="line">7、 创建数据块，设置item属性，是否可导航，非数据库item设置database item为no，显示在画布physical，prompt设置显示在画布上的属性</div><div class="line">8、 创建画布，一个window必需有且仅有一块主画布，设置画布的子类和放置窗口</div><div class="line">9、 设置form属性，第一个导航块</div><div class="line">10、 调用CUX_PLSQL_AUTOCREATE自动生成4个on触发器</div><div class="line">12、 定义function 应用开发员-&gt;功能</div><div class="line">功能： from名 用户功能名：菜单下可见（CUX_XXX）</div><div class="line">特性：类型选择form</div><div class="line">表单：功能、表单都用form名</div><div class="line">13、 加入到职责</div><div class="line">系统管理员-&gt;责任（通过责任名查出所属菜单名）</div><div class="line">应用产品-&gt;菜单-&gt;用户菜单名（用户可见）-&gt;继续查询子菜单-&gt;添加</div></pre></td></tr></table></figure></p>
 
       
     </div>
