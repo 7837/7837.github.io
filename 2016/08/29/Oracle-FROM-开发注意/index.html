@@ -1,0 +1,856 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ORACLE FORM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#FORM开发总结(2015/11/20)
+##Form开发知识总结
+相关记录Form开发知识点记录，参考form：NAV-&amp;gt;申请单-&amp;gt;库存转移。参考form：cmx_transaction.fmb。参考包：cmx_transaction_wh_pkg.pck。
+###1. form保留固定的小数位数。
+
+
+
+原数字
+Format mask
+结果
+说明
+
+
+
+
+123456.03
+FM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle FROM 开发注意">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/Oracle-FROM-开发注意/index.html">
+<meta property="og:site_name" content="Jemes Zhou">
+<meta property="og:description" content="#FORM开发总结(2015/11/20)
+##Form开发知识总结
+相关记录Form开发知识点记录，参考form：NAV-&amp;gt;申请单-&amp;gt;库存转移。参考form：cmx_transaction.fmb。参考包：cmx_transaction_wh_pkg.pck。
+###1. form保留固定的小数位数。
+
+
+
+原数字
+Format mask
+结果
+说明
+
+
+
+
+123456.03
+FM">
+<meta property="og:updated_time" content="2016-08-30T12:27:32.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle FROM 开发注意">
+<meta name="twitter:description" content="#FORM开发总结(2015/11/20)
+##Form开发知识总结
+相关记录Form开发知识点记录，参考form：NAV-&amp;gt;申请单-&amp;gt;库存转移。参考form：cmx_transaction.fmb。参考包：cmx_transaction_wh_pkg.pck。
+###1. form保留固定的小数位数。
+
+
+
+原数字
+Format mask
+结果
+说明
+
+
+
+
+123456.03
+FM">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/29/Oracle-FROM-开发注意/"/>
+
+  <title> Oracle FROM 开发注意 | Jemes Zhou </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jemes Zhou</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">为梦想加油</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Oracle FROM 开发注意
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T16:30:30+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ORACLE/" itemprop="url" rel="index">
+                    <span itemprop="name">ORACLE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/29/Oracle-FROM-开发注意/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/Oracle-FROM-开发注意/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#FORM开发总结(2015/11/20)</p>
+<p>##Form开发知识总结</p>
+<p>相关记录<br>Form开发知识点记录，参考form：NAV-&gt;申请单-&gt;库存转移。参考form：cmx_transaction.fmb。参考包：cmx_transaction_wh_pkg.pck。</p>
+<p>###1. form保留固定的小数位数。</p>
+<table>
+<thead>
+<tr>
+<th>原数字</th>
+<th>Format mask</th>
+<th>结果</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>123456.03</td>
+<td>FM999，990</td>
+<td>FM999，990.00</td>
+<td></td>
+</tr>
+<tr>
+<td>0.123</td>
+<td>FM999,999.00</td>
+<td>.12</td>
+<td>小数点前是9</td>
+</tr>
+<tr>
+<td>0.123</td>
+<td>FM999,990.00</td>
+<td>0.12</td>
+<td>小数点前是0</td>
+</tr>
+<tr>
+<td>123456789.03</td>
+<td>FM999,990.00</td>
+<td>######</td>
+<td>因为Format Mask的个数不够</td>
+</tr>
+<tr>
+<td>123456789.03</td>
+<td>FM999,999,990.00</td>
+<td>123,456,789.03</td>
+</tr>
+</tbody>
+</table>
+<p>在to_char中to_char(A,B)：<br>|A    |B    |结果    |说明|<br>| ——– | | ——–   | | ——–   | | ——–   |<br>|0.123|    FM999,999.00|    .123|    小数点前是9|<br>|0.123|    FM999,990.00|    0.123|    小数点前是0|</p>
+<p>###2. Oracle Form系统变量。</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>变量表述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>system.block_status</td>
+<td>包含了当前块的状态，可有三个值：CHANGED，表明块中至少有一个记录被修改过；NEW，表明块中仅有未被修改过的记录；QUERY，表明块处于查询模式中。</td>
+</tr>
+<tr>
+<td>system.current_block</td>
+<td>决定输入点的位置，当它出现在块、记录、项中时，它的值是块名。当pre_，post_form类触发器启动时，它的值为空（null）。</td>
+</tr>
+<tr>
+<td>system.current_datetime</td>
+<td>包含当前操作系统的日期和时间的字符值，默认格式为DD_MON_YYYY  HH24:MI:SS</td>
+</tr>
+<tr>
+<td>system.cursor_block</td>
+<td>包含当前光标所停留的块的名字。</td>
+</tr>
+<tr>
+<td>system.cursor_item</td>
+<td>包含当前光标所停留的块和项的名字。</td>
+</tr>
+<tr>
+<td>system.form_status</td>
+<td>包含含有光标的form的状态。其值可为以下一个或多个：CHANGED，NEW，QUERY。</td>
+</tr>
+<tr>
+<td>system.last_record</td>
+<td>包含一个在记录块集中表示当前记录是否是最后记录的布尔值</td>
+</tr>
+<tr>
+<td>system.record_status</td>
+<td>包含了鼠标所在位置的记录状态，其值为CHANGED、INSERT、NEW和QUERY。</td>
+</tr>
+<tr>
+<td>system.trigger_block</td>
+<td>包含了在当前触发器启动时鼠标所在块的名字。</td>
+</tr>
+<tr>
+<td>system.trigger_item</td>
+<td>包含了在当前触发器启动时鼠标所在块和项的名字。</td>
+</tr>
+<tr>
+<td>system.trigger_record</td>
+<td>包含了Form正在处理的记录个数。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>###3. Oracle form传参调用另外的form。</p>
+<pre><code>Form 调用另一个form的意思就是说，我要在form A中触发某个事件，然后调用到form B，而这又不是单纯的只是显示出form B，而要传递A中的某些参数以供form B的使用，或者说form B的执行需要form A中的某些参数。对于这个问题，在form中可以通过定义参数列、清空form A参数列、初始化form A参数列、添加参数到参数列、使用open_form打开form B并调用参数列。
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">DECLARE</div><div class="line">  -- 定义参数列</div><div class="line">  l_pl_id paramlist;</div><div class="line">BEGIN</div><div class="line">  -- 清空form_A的参数列</div><div class="line">  p_destroy_parameter_list(<span class="string">'form_A'</span>);</div><div class="line">  -- 初始化form_A的参数列</div><div class="line">  l_pl_id := create_parameter_list(<span class="string">'form_A'</span>);</div><div class="line">  -- 添加参数PM_STORE到参数列，并赋值，注意赋值的类型主要有text_parameter、data_parameter两种，text_parameter代表字符串型，而data_parameter并不是代表数值，详细参加参考文档add_parameter。</div><div class="line"></div><div class="line">  add_parameter(l_pl_id,</div><div class="line">                <span class="string">'PM_STORE'</span>,</div><div class="line">                text_parameter,</div><div class="line">                :b_order_head.store);</div><div class="line">  -- 添加参数PM_ITEM到参数列，并赋值，注意赋值的类型主要有text_parameter、data_parameter两种，text_parameter代表字符串型，而data_parameter并不是代表数值，详细参加参考文档add_parameter。</div><div class="line">  add_parameter(l_pl_id,</div><div class="line">                <span class="string">'PM_ITEM'</span>,</div><div class="line">                text_parameter,</div><div class="line">                :b_order_detail.item);</div><div class="line">  -- 添加参数PM_ITEM_DESC到参数列，并赋值，注意赋值的类型主要有text_parameter、data_parameter两种，text_parameter代表字符串型，而data_parameter并不是代表数值，详细参加参考文档add_parameter。</div><div class="line">  add_parameter(l_pl_id,</div><div class="line">                <span class="string">'PM_ITEM_DESC'</span>,</div><div class="line">                text_parameter,</div><div class="line">                :b_order_detail.ti_item_desc);</div><div class="line"> </div><div class="line">  -- 使用open_form打开form_B并调用参数列</div><div class="line">  open_form(<span class="string">'form_B'</span>,</div><div class="line">            activate,</div><div class="line">            session,</div><div class="line">            l_pl_id);</div><div class="line">  -- 异常处理</div><div class="line">EXCEPTION</div><div class="line">  WHEN form_trigger_failure THEN</div><div class="line">    RAISE;</div><div class="line">  WHEN OTHERS THEN</div><div class="line">    emessage(SQLERRM);</div><div class="line">    RAISE form_trigger_failure;</div><div class="line">END;</div></pre></td></tr></table></figure>
+<p>这里往参数列中添加了的PM_STORE、PM_ITEM、PM_ITEM_DESC这几个参数，在form_A、form_B中都应该是已经定义了的。</p>
+<p>###4.form where查询案例：</p>
+<p>添加时间和固定数据库项搜索。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">PACKAGE BODY p_find IS</div><div class="line">  PROCEDURE pb_search IS</div><div class="line">  </div><div class="line">    l_transaction_no   NUMBER := :b_find.transaction_no;</div><div class="line">    l_transaction_type VARCHAR2(<span class="number">20</span>) := :b_find.transaction_type;</div><div class="line">    l_from_loc         NUMBER := :b_find.from_loc;</div><div class="line">    l_to_loc           NUMBER := :b_find.to_loc;</div><div class="line">    l_pos_no           NUMBER := :b_find.pos_no;</div><div class="line">    ---</div><div class="line">    l_text VARCHAR2(<span class="number">2400</span>) := <span class="string">'WHERE 1 = 1'</span>;</div><div class="line">  </div><div class="line">  BEGIN</div><div class="line">  </div><div class="line">    IF :b_find.li_action = <span class="string">'EDIT'</span></div><div class="line">       AND :b_find.transaction_type = <span class="string">'Y'</span> THEN</div><div class="line">      emessage(<span class="string">'云药店退货单据类型，无法被编辑，请使用查看功能'</span>);</div><div class="line">      RAISE form_trigger_failure;</div><div class="line">    ELSE</div><div class="line">    </div><div class="line">      go_block(<span class="string">'B_FIND_ANS'</span>);</div><div class="line">      show_window(<span class="string">'W_FIND_MAIN'</span>);</div><div class="line">      ---</div><div class="line">      IF l_transaction_no IS NOT NULL THEN</div><div class="line">        l_text := l_text || <span class="string">' and TRANSACTION_NO = '</span> || l_transaction_no;</div><div class="line">      END IF;</div><div class="line">      ---</div><div class="line">      IF l_transaction_type IS NOT NULL THEN</div><div class="line">        l_text := l_text || <span class="string">' and TRANSACTION_TYPE = '</span><span class="string">''</span> || l_transaction_type || <span class="string">'''';</span></div><div class="line">      END IF;</div><div class="line">--where子句例子</div><div class="line">      IF l_pos_no IS NOT NULL THEN</div><div class="line">        l_text := l_text || ' and POS_NO = ''' || l_pos_no || <span class="string">'''';</span></div><div class="line">      END IF;</div><div class="line">      ---</div><div class="line">      IF l_from_loc IS NOT NULL THEN</div><div class="line">        l_text := l_text || ' and FROM_LOC = ''' || l_from_loc || <span class="string">'''';</span></div><div class="line">      END IF;</div><div class="line">      --</div><div class="line">      IF l_to_loc IS NOT NULL THEN</div><div class="line">        l_text := l_text || ' and TO_LOC = ''' || l_to_loc || <span class="string">'''';</span></div><div class="line">      END IF;</div><div class="line">      IF :b_find.ti_create_f IS NOT NULL</div><div class="line">         OR :b_find.ti_create_t IS NOT NULL THEN</div><div class="line">        l_text := l_text || ' and trunc(create_date) &gt;= ' || ' NVL(to_date(''' || to_char(:b_find.ti_create_f) ||</div><div class="line">                  <span class="string">''', ''DD-MON-RR''), trunc(create_date)) ' || ' and ' || 'trunc(create_date) &lt;= ' || ' NVL(to_date('''</span> ||</div><div class="line">                  to_char(:b_find.ti_create_t) || <span class="string">''', ''DD-MON-RR''), trunc(create_date))';</span></div><div class="line">      END IF;</div><div class="line">      IF :b_find.ti_approve_f IS NOT NULL</div><div class="line">         OR :b_find.ti_approve_t IS NOT NULL THEN</div><div class="line">        l_text := l_text || ' and trunc(approve_date) &gt;= ' || ' NVL(to_date(''' || to_char(:b_find.ti_approve_f) ||</div><div class="line">                  <span class="string">''', ''DD-MON-RR''), trunc(approve_date)) ' || ' and ' || 'trunc(approve_date) &lt;= ' || ' NVL(to_date('''</span> ||</div><div class="line">                  to_char(:b_find.ti_approve_t) || <span class="string">''', ''DD-MON-RR''), trunc(approve_date))';</span></div><div class="line">      END IF;</div><div class="line">    --where查询</div><div class="line">      set_block_property('B_FIND_ANS',</div><div class="line">                         default_where,</div><div class="line">                         l_text);</div><div class="line">      ---</div><div class="line">    </div><div class="line">      execute_query;</div><div class="line">    </div><div class="line">    END IF;</div><div class="line">  EXCEPTION</div><div class="line">    WHEN form_trigger_failure THEN</div><div class="line">      RAISE;</div><div class="line">    WHEN OTHERS THEN</div><div class="line">      emessage(SQLERRM);</div><div class="line">      RAISE form_trigger_failure;</div><div class="line">  END;</div></pre></td></tr></table></figure></p>
+<p>###5. 关闭菜单栏和开启菜单栏：</p>
+<p>set_menu_item_property(‘options_menu.PO_APPROVE’,<br>                               enabled,<br>                               property_false);<br>set_menu_item_property(‘options_menu.DELETE’,<br>                               enabled,<br>                               property_true);</p>
+<p>###6.  关闭form触发器参考：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">DECLARE</div><div class="line">  l_save_form BOOLEAN;</div><div class="line">BEGIN</div><div class="line">  IF NOT window_handler.wwc_is_system_window THEN</div><div class="line">    validate(item_scope);</div><div class="line">    ---------------------------------------------------------</div><div class="line">    --- The following <span class="keyword">if</span> statement should only be uncommented</div><div class="line">    --- <span class="keyword">if</span> users have multiple windows <span class="keyword">in</span> their form</div><div class="line">    ---------------------------------------------------------</div><div class="line">    ---   <span class="keyword">if</span> :system.event_window = <span class="string">'W_PRIMARY_WINDOW'</span> then</div><div class="line">    --- This function calls upon the window handler function to close the form.</div><div class="line">    --- If the :system.form_status <span class="keyword">is</span> changed it will prompt the user to save their</div><div class="line">    --- changes, otherwise it will exit the form.</div><div class="line">  </div><div class="line">    ---</div><div class="line">    IF :system.event_window = <span class="string">'W_FIND'</span> THEN</div><div class="line">      --emessage(:system.event_window);</div><div class="line">      exit_form(no_validate);</div><div class="line">    ELSIF :system.event_window = <span class="string">'W_FIND_MAIN'</span> THEN</div><div class="line">      --emessage(:system.event_window); </div><div class="line">      go_block(<span class="string">'B_FIND'</span>);</div><div class="line">      go_item(<span class="string">'B_FIND.LI_action'</span>);</div><div class="line">      hide_window(<span class="string">'W_FIND_MAIN'</span>);</div><div class="line">    ELSIF :system.event_window = <span class="string">'W_MAIN'</span> THEN</div><div class="line">      --emessage(:system.event_window);</div><div class="line">      set_menu_item_property(<span class="string">'options_menu.DELETE'</span>,</div><div class="line">                             enabled,</div><div class="line">                             property_false);</div><div class="line">      set_menu_item_property(<span class="string">'options_menu.PO_APPROVE'</span>,</div><div class="line">                             enabled,</div><div class="line">                             property_false);</div><div class="line">      l_save_form := window_handler.wwc_save_changes;</div><div class="line">      IF :system.form_status &lt;&gt; <span class="string">'QUERY'</span> THEN</div><div class="line">        IF l_save_form = TRUE THEN</div><div class="line">          commit_form;</div><div class="line">        ELSIF l_save_form = FALSE THEN</div><div class="line">          p_exit.cancel_form;</div><div class="line">        ELSIF l_save_form IS NULL THEN</div><div class="line">          NULL;</div><div class="line">        END IF;</div><div class="line">      END IF;</div><div class="line">      IF :b_find.li_action = <span class="string">'NEW'</span> THEN</div><div class="line">        hide_window(<span class="string">'W_MAIN'</span>);</div><div class="line">        go_block(<span class="string">'B_FIND'</span>);</div><div class="line">      ELSE</div><div class="line">        go_block(<span class="string">'B_FIND_ANS'</span>);</div><div class="line">        hide_window(<span class="string">'W_MAIN'</span>);</div><div class="line">      END IF;</div><div class="line">    END IF;</div><div class="line">    ---   elsif :system.event_window = <span class="string">'W_SECONDARY_WINDOW'</span> then</div><div class="line">    ---   do secondary window close logic</div><div class="line">    ---   end <span class="keyword">if</span>;</div><div class="line">  END IF;</div><div class="line">EXCEPTION</div><div class="line">  WHEN form_trigger_failure THEN</div><div class="line">    RAISE;</div><div class="line">  WHEN OTHERS THEN</div><div class="line">    emessage(SQLERRM);</div><div class="line">    RAISE form_trigger_failure;</div><div class="line">END;</div></pre></td></tr></table></figure>
+<p>###7.光标选择单行。</p>
+<p>###8.显示系统时间：</p>
+<p>   :B_TRANSACTION_head.CREATE_DATE := SYSDATE;</p>
+<p>###9.时间显示精确到时分秒，格式设置</p>
+<p>###10. 时间选择框现在格式（2015-10-21）：</p>
+<p>Item触发器显示：<br>    WHEN-NEW-ITEM-INSTANCE：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  IF (p_calendar.lp_date_ok IS NOT NULL) THEN</div><div class="line">    IF (p_calendar.lp_date_ok = <span class="string">'Y'</span>) THEN</div><div class="line">      :b_find.ti_create_t   := p_calendar.lp_current_date;</div><div class="line">      p_calendar.lp_date_ok := NULL;</div><div class="line">    ELSE</div><div class="line">      p_calendar.lp_date_ok := NULL;</div><div class="line">    END IF;</div><div class="line">  END IF;</div><div class="line">END;</div><div class="line">	KEY-LISTVAL：</div><div class="line">DECLARE</div><div class="line">  l_return_to    VARCHAR2(<span class="number">256</span>) := <span class="string">'B_FIND.TI_CREATE_T'</span>;</div><div class="line">  l_default_date DATE := NULL;</div><div class="line">  l_min_date     DATE := NULL;</div><div class="line">  l_max_date     DATE := NULL;</div><div class="line"></div><div class="line">BEGIN</div><div class="line"></div><div class="line">  p_calendar.show_calendar(l_return_to    =&gt; l_return_to,</div><div class="line">                           l_default_date =&gt; l_default_date,</div><div class="line">                           l_min_date     =&gt; l_min_date,</div><div class="line">                           l_max_date     =&gt; l_max_date);</div><div class="line">END; </div><div class="line">PRE-TEXT-ITEM：</div><div class="line">Null;</div><div class="line">POST-TEXT-ITEM</div><div class="line">Null;</div></pre></td></tr></table></figure></p>
+<p>Item属性设置</p>
+<p>###11 .提交去除验证：</p>
+<p>oraclefunction<br>在form中进行保存时，如果使用commit_form的话会弹出信息提示“没有修改需要保存”或者“几条记录已保存”类似的字样，有时候不想被提示，可以使用APPCORE.pll中的app_form程序包中的quietcommit这个function，由于是一个function，所以需要定义一个变量用来接收返回值，返回值类型为boolean，当true的时候就说明成功，否则commit失败！</p>
+<p>或者调用一下过程（将系统的消息级别更改为较低级别）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">PROCEDURE DOCOMMIT IS </div><div class="line">  old_level VARCHAR2(<span class="number">2</span>); </div><div class="line">BEGIN </div><div class="line">  old_level := NAME_IN(<span class="string">'system.message_level'</span>); </div><div class="line">  COPY(<span class="string">'5'</span>,<span class="string">'system.message_level'</span>); </div><div class="line">  commit; </div><div class="line">  COPY(old_level,<span class="string">'system.message_level'</span>); </div><div class="line">END；</div></pre></td></tr></table></figure>
+<p>###12.关闭无验证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Exit_Form(No_Validate);</div></pre></td></tr></table></figure>
+<p>###13.动态生成下拉框：</p>
+<p>假设数据库TEST_BLOCK，下面有一个TEST_ITEM,类型为列表项，子类信息为LIST.<br>(1).添加元素add_list_element(‘TEST_BLOCK.TEST_ITEM’,I,v_name,v_id);<br>–i对应列表中的第几个项，V_NAME是列表中显示的项，V_ID是项对应的值<br>(2).删除元素<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete_list_element(<span class="string">'TEST_BLOCK.TEST_ITEM'</span>,i);</div></pre></td></tr></table></figure></p>
+<p>###14.form中常用函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">abort_query	停止查询执行</div><div class="line">add_list_element(list name <span class="keyword">or</span> list id,  list index,list lable,list value);	list name是list的名字,list index 是添加到列表框的索引，list label指定了放入列表中的数值串,list value包含了列表标识所应对的资料库的数值.</div><div class="line">clear_block	清空当前块</div><div class="line">clear_form	清空当前form</div><div class="line">clear_item(name)	清空当前项</div><div class="line">clear_list(name)	清空下拉框选值</div><div class="line">clear_record	清空当前记录</div></pre></td></tr></table></figure>
+<p>###15. f_yes_no方法使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BEGIN</div><div class="line">  IF f_yes_no( <span class="string">'?MANUAL_BT'</span>) THEN </div><div class="line">    set_menu_item_property( <span class="string">'options_menu.DELETE'</span>,</div><div class="line">                           enabled,</div><div class="line">                           property_false);</div><div class="line">    set_menu_item_property( <span class="string">'options_menu.PO_APPROVE'</span>,</div><div class="line">                           enabled,</div><div class="line">                           property_false);</div><div class="line">  END IF;</div><div class="line">END;</div></pre></td></tr></table></figure>
+<p>##打印报表</p>
+<p>操作步骤：<br>主要记录在form中如果调用报表，打印相应的数据。参考form（cmx_order）。</p>
+<p>–声明传递的form<br>```python<br>p_destroy_parameter_list(‘cmx_order’);<br>pl_id := create_parameter_list(‘cmx_order’);<br>–添加传递的参数</p>
+<p>  add_parameter(pl_id,<br>                ‘PM_order_no’,<br>                text_parameter,<br>                to_char(:b_head.order_no));</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ORACLE-FORM/" rel="tag">#ORACLE FORM</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/29/FORM开发步骤/" rel="next" title="FORM开发步骤">
+                <i class="fa fa-chevron-left"></i> FORM开发步骤
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/29/国控接口监控/" rel="prev" title="国控接口监控">
+                国控接口监控 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/29/Oracle-FROM-开发注意/"
+           data-title="Oracle FROM 开发注意" data-url="http://yoursite.com/2016/08/29/Oracle-FROM-开发注意/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Jemes Zhou" />
+          <p class="site-author-name" itemprop="name">Jemes Zhou</p>
+          <p class="site-description motion-element" itemprop="description">一天一小步,人生一大步。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JemesZhou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3212383780?refer_flag=1001030102_&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.google.com" target="_blank" title="谷歌">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  谷歌
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jemes Zhou</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"JemesZhou"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
