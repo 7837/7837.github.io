@@ -1,0 +1,849 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MySQL,数据优化,迭代查询," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#MYSQL深度树状搜索原博客参考
+
+
+建立一张表格 存在子父类关系的数据123456mysql&amp;gt; create table treeNodes    -&amp;gt; (    -&amp;gt;  id int primary key,    -&amp;gt;  nodename varchar(20),    -&amp;gt;  pid int    -&amp;gt; );
+
+
+
+
+
+
+id
+nodename
+pid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql树状深度搜索">
+<meta property="og:url" content="http://yoursite.com/2016/10/08/mysql树状深度搜索/index.html">
+<meta property="og:site_name" content="Jemes Zhou">
+<meta property="og:description" content="#MYSQL深度树状搜索原博客参考
+
+
+建立一张表格 存在子父类关系的数据123456mysql&amp;gt; create table treeNodes    -&amp;gt; (    -&amp;gt;  id int primary key,    -&amp;gt;  nodename varchar(20),    -&amp;gt;  pid int    -&amp;gt; );
+
+
+
+
+
+
+id
+nodename
+pid">
+<meta property="og:updated_time" content="2016-10-08T12:20:45.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql树状深度搜索">
+<meta name="twitter:description" content="#MYSQL深度树状搜索原博客参考
+
+
+建立一张表格 存在子父类关系的数据123456mysql&amp;gt; create table treeNodes    -&amp;gt; (    -&amp;gt;  id int primary key,    -&amp;gt;  nodename varchar(20),    -&amp;gt;  pid int    -&amp;gt; );
+
+
+
+
+
+
+id
+nodename
+pid">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/08/mysql树状深度搜索/"/>
+
+  <title> mysql树状深度搜索 | Jemes Zhou </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jemes Zhou</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">为梦想加油</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mysql树状深度搜索
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T20:05:50+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/mysql树状深度搜索/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/mysql树状深度搜索/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#MYSQL深度树状搜索<br><a href="http://blog.csdn.net/sky786905664/article/details/52681504" target="_blank" rel="external">原博客参考</a></p>
+<blockquote>
+<ul>
+<li>建立一张表格 存在子父类关系的数据<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create table treeNodes</div><div class="line">    -&gt; (</div><div class="line">    -&gt;  id int primary key,</div><div class="line">    -&gt;  nodename varchar(20),</div><div class="line">    -&gt;  pid int</div><div class="line">    -&gt; );</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th style="text-align:right">nodename</th>
+<th style="text-align:center">pid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">A</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:right">B</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:right">C</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:right">D</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:right">E</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:right">F</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align:right">G</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:right">H</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align:right">I</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align:right">J</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td>11</td>
+<td style="text-align:right">K</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td>12</td>
+<td style="text-align:right">L</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td>13</td>
+<td style="text-align:right">M</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td>14</td>
+<td style="text-align:right">N</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td>15</td>
+<td style="text-align:right">O</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td>16</td>
+<td style="text-align:right">P</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td>17</td>
+<td style="text-align:right">Q</td>
+<td style="text-align:center">15 </td>
+</tr>
+</tbody>
+</table>
+<p>##方法一：利用函数来得到所有子节点号。(方法一项目中测试可行)<br>创建一个function getChildLst, 得到一个由所有子节点号组成的字符串. </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">mysql&gt; delimiter //</div><div class="line">mysql&gt;</div><div class="line">mysql&gt; CREATE FUNCTION `getChildLst`(rootId INT)</div><div class="line">    -&gt; RETURNS varchar(1000)</div><div class="line">    -&gt; BEGIN</div><div class="line">    -&gt;   DECLARE sTemp VARCHAR(1000);</div><div class="line">    -&gt;   DECLARE sTempChd VARCHAR(1000);</div><div class="line">    -&gt;</div><div class="line">    -&gt;   SET sTemp = '$';</div><div class="line">    -&gt;   SET sTempChd =cast(rootId as CHAR);</div><div class="line">    -&gt;</div><div class="line">    -&gt;   WHILE sTempChd is not null DO</div><div class="line">    -&gt;     SET sTemp = concat(sTemp,',',sTempChd);</div><div class="line">    -&gt;     SELECT group_concat(id) INTO sTempChd FROM treeNodes where FIND_IN_SET(pid,sTempChd)&gt;0;</div><div class="line">    -&gt;   END WHILE;</div><div class="line">    -&gt;   RETURN sTemp;</div><div class="line">    -&gt; END</div><div class="line">    -&gt; //</div><div class="line">    </div><div class="line">mysql&gt;</div><div class="line">mysql&gt; delimiter ;</div></pre></td></tr></table></figure>
+<p>使用我们直接利用find_in_set函数配合这个getChildlst来查找</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select getChildLst(<span class="number">1</span>);</div><div class="line">+-----------------+</div><div class="line">| getChildLst(<span class="number">1</span>)  |</div><div class="line">+-----------------+</div><div class="line">| $,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span> |</div><div class="line">+-----------------+</div><div class="line"><span class="number">1</span> row <span class="keyword">in</span> set (<span class="number">0.00</span> sec)</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from treeNodes</div><div class="line">    -&gt; where FIND_IN_SET(id, getChildLst(1));</div><div class="line">+----+----------+------+</div><div class="line">| id | nodename | pid  |</div><div class="line">+----+----------+------+</div><div class="line">|  1 | A        |    0 |</div><div class="line">|  2 | B        |    1 |</div><div class="line">|  3 | C        |    1 |</div><div class="line">|  4 | D        |    2 |</div><div class="line">|  5 | E        |    2 |</div><div class="line">|  6 | F        |    3 |</div><div class="line">|  7 | G        |    6 |</div><div class="line">+----+----------+------+</div><div class="line">7 rows in set (0.01 sec)</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from treeNodes</div><div class="line">    -&gt; where FIND_IN_SET(id, getChildLst(3));</div><div class="line">+----+----------+------+</div><div class="line">| id | nodename | pid  |</div><div class="line">+----+----------+------+</div><div class="line">|  3 | C        |    1 |</div><div class="line">|  6 | F        |    3 |</div><div class="line">|  7 | G        |    6 |</div><div class="line">+----+----------+------+</div><div class="line">3 rows in set (0.01 sec)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>优点: 简单，方便，没有递归调用层次深度的限制 (max_sp_recursion_depth,最大255) ；</li>
+<li>缺点：长度受限，虽然可以扩大 RETURNS varchar(1000)，但总是有最大限制的。</li>
+</ul>
+</blockquote>
+<p>MySQL目前版本( 5.1.33-community)中还不支持function 的递归调用。</p>
+<p>##方法二：利用临时表和过程递归(方法二测试可行)<br>创建存储过程如下。createChildLst 为递归过程，showChildLst为调用入口过程，准备临时表及初始化。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">mysql&gt; delimiter //</div><div class="line">mysql&gt;</div><div class="line">mysql&gt; # 入口过程</div><div class="line">mysql&gt; CREATE PROCEDURE showChildLst (IN rootId INT)</div><div class="line">    -&gt; BEGIN</div><div class="line">    -&gt;  CREATE TEMPORARY TABLE IF NOT EXISTS tmpLst </div><div class="line">    -&gt;   (sno int primary key auto_increment,id int,depth int);</div><div class="line">    -&gt;  DELETE FROM tmpLst;</div><div class="line">    -&gt;</div><div class="line">    -&gt;  CALL createChildLst(rootId,0);</div><div class="line">    -&gt;</div><div class="line">    -&gt;  select tmpLst.*,treeNodes.* from tmpLst,treeNodes where tmpLst.id=treeNodes.id order by tmpLst.sno;</div><div class="line">    -&gt; END;</div><div class="line">    -&gt; //</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line">mysql&gt;</div><div class="line">mysql&gt; # 递归过程</div><div class="line">mysql&gt; CREATE PROCEDURE createChildLst (IN rootId INT,IN nDepth INT)</div><div class="line">    -&gt; BEGIN</div><div class="line">    -&gt;  DECLARE done INT DEFAULT 0;</div><div class="line">    -&gt;  DECLARE b INT;</div><div class="line">    -&gt;  DECLARE cur1 CURSOR FOR SELECT id FROM treeNodes where pid=rootId;</div><div class="line">    -&gt;  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;</div><div class="line">    -&gt;</div><div class="line">    -&gt;  insert into tmpLst values (null,rootId,nDepth);</div><div class="line">    -&gt;</div><div class="line">    -&gt;  OPEN cur1;</div><div class="line">    -&gt;</div><div class="line">    -&gt;  FETCH cur1 INTO b;</div><div class="line">    -&gt;  WHILE done=0 DO</div><div class="line">    -&gt;          CALL createChildLst(b,nDepth+1);</div><div class="line">    -&gt;          FETCH cur1 INTO b;</div><div class="line">    -&gt;  END WHILE;</div><div class="line">    -&gt;</div><div class="line">    -&gt;  CLOSE cur1;</div><div class="line">    -&gt; END;</div><div class="line">    -&gt; //</div><div class="line">Query OK, 0 rows affected (0.00 sec) </div><div class="line">mysql&gt; delimiter ;</div></pre></td></tr></table></figure>
+<p>调用时传入结点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">mysql&gt; call showChildLst(<span class="number">1</span>);</div><div class="line">+-----+------+-------+----+----------+------+</div><div class="line">| sno | id   | depth | id | nodename | pid  |</div><div class="line">+-----+------+-------+----+----------+------+</div><div class="line">|   <span class="number">4</span> |    <span class="number">1</span> |     <span class="number">0</span> |  <span class="number">1</span> | A        |    <span class="number">0</span> |</div><div class="line">|   <span class="number">5</span> |    <span class="number">2</span> |     <span class="number">1</span> |  <span class="number">2</span> | B        |    <span class="number">1</span> |</div><div class="line">|   <span class="number">6</span> |    <span class="number">4</span> |     <span class="number">2</span> |  <span class="number">4</span> | D        |    <span class="number">2</span> |</div><div class="line">|   <span class="number">7</span> |    <span class="number">5</span> |     <span class="number">2</span> |  <span class="number">5</span> | E        |    <span class="number">2</span> |</div><div class="line">|   <span class="number">8</span> |    <span class="number">3</span> |     <span class="number">1</span> |  <span class="number">3</span> | C        |    <span class="number">1</span> |</div><div class="line">|   <span class="number">9</span> |    <span class="number">6</span> |     <span class="number">2</span> |  <span class="number">6</span> | F        |    <span class="number">3</span> |</div><div class="line">|  <span class="number">10</span> |    <span class="number">7</span> |     <span class="number">3</span> |  <span class="number">7</span> | G        |    <span class="number">6</span> |</div><div class="line">+-----+------+-------+----+----------+------+</div><div class="line"><span class="number">7</span> rows <span class="keyword">in</span> set (<span class="number">0.13</span> sec)</div><div class="line"></div><div class="line">Query OK, <span class="number">0</span> rows affected, <span class="number">1</span> warning (<span class="number">0.14</span> sec)</div><div class="line"></div><div class="line">mysql&gt;</div><div class="line">mysql&gt; call showChildLst(<span class="number">3</span>);</div><div class="line">+-----+------+-------+----+----------+------+</div><div class="line">| sno | id   | depth | id | nodename | pid  |</div><div class="line">+-----+------+-------+----+----------+------+</div><div class="line">|   <span class="number">1</span> |    <span class="number">3</span> |     <span class="number">0</span> |  <span class="number">3</span> | C        |    <span class="number">1</span> |</div><div class="line">|   <span class="number">2</span> |    <span class="number">6</span> |     <span class="number">1</span> |  <span class="number">6</span> | F        |    <span class="number">3</span> |</div><div class="line">|   <span class="number">3</span> |    <span class="number">7</span> |     <span class="number">2</span> |  <span class="number">7</span> | G        |    <span class="number">6</span> |</div><div class="line">+-----+------+-------+----+----------+------+</div><div class="line"><span class="number">3</span> rows <span class="keyword">in</span> set (<span class="number">0.11</span> sec)</div><div class="line"></div><div class="line">Query OK, <span class="number">0</span> rows affected, <span class="number">1</span> warning (<span class="number">0.11</span> sec)</div></pre></td></tr></table></figure>
+<p>depth 为深度，这样可以在程序进行一些显示上的格式化处理。类似于oracle中的 level 伪列。sno 仅供排序控制。这样你还可以通过临时表tmpLst与数据库中其它表进行联接查询。</p>
+<p>MySQL中你可以利用系统参数 max_sp_recursion_depth 来控制递归调用的层数上限。如下例设为12.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; set max_sp_recursion_depth=<span class="number">12</span>;</div><div class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.00</span> sec)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>优点 : 可以更灵活处理，及层数的显示。并且可以按照树的遍历顺序得到结果。</li>
+<li>缺点 : 递归有255的限制。</li>
+</ul>
+</blockquote>
+<p>##方法三：利用中间表和过程（方法三未试过）<br>(本方法由yongyupost2000提供样子改编)<br>创建存储过程如下。由于MySQL中不允许在同一语句中对临时表多次引用，只以使用普通表tmpLst来实现了。当然你的程序中负责在用完后清除这个表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">delimiter //</div><div class="line">drop PROCEDURE IF EXISTS  showTreeNodes_yongyupost2000//</div><div class="line">CREATE PROCEDURE showTreeNodes_yongyupost2000 (IN rootid INT)</div><div class="line">BEGIN</div><div class="line"> DECLARE Level int ;</div><div class="line"> drop TABLE IF EXISTS tmpLst;</div><div class="line"> CREATE TABLE tmpLst (</div><div class="line">  id int,</div><div class="line">  nLevel int,</div><div class="line">  sCort varchar(<span class="number">8000</span>)</div><div class="line"> );</div><div class="line"> </div><div class="line"> Set Level=<span class="number">0</span> ;</div><div class="line"> INSERT into tmpLst SELECT id,Level,ID FROM treeNodes WHERE PID=rootid;</div><div class="line"> WHILE ROW_COUNT()&gt;<span class="number">0</span> DO</div><div class="line">  SET Level=Level+<span class="number">1</span> ;</div><div class="line">  INSERT into tmpLst </div><div class="line">   SELECT A.ID,Level,concat(B.sCort,A.ID) FROM treeNodes A,tmpLst B </div><div class="line">    WHERE  A.PID=B.ID AND B.nLevel=Level<span class="number">-1</span>  ;</div><div class="line"> END WHILE;</div><div class="line">  </div><div class="line">END;</div><div class="line">//</div><div class="line">delimiter ;</div><div class="line">CALL showTreeNodes_yongyupost2000(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>执行完后会产生一个tmpLst表，nLevel 为节点深度，sCort 为排序字段。<br>使用方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">SELECT concat(SPACE(B.nLevel*<span class="number">2</span>),<span class="string">'+--'</span>,A.nodename)</div><div class="line">FROM treeNodes A,tmpLst B </div><div class="line">WHERE A.ID=B.ID </div><div class="line">ORDER BY B.sCort;</div><div class="line">+--------------------------------------------+</div><div class="line">| concat(SPACE(B.nLevel*<span class="number">2</span>),<span class="string">'+--'</span>,A.nodename) |</div><div class="line">+--------------------------------------------+</div><div class="line">| +--A                                       |</div><div class="line">|   +--B                                     |</div><div class="line">|     +--D                                   |</div><div class="line">|     +--E                                   |</div><div class="line">|   +--C                                     |</div><div class="line">|     +--F                                   |</div><div class="line">|       +--G                                 |</div><div class="line">| +--H                                       |</div><div class="line">|   +--J                                     |</div><div class="line">|   +--K                                     |</div><div class="line">|   +--I                                     |</div><div class="line">|     +--L                                   |</div><div class="line">|       +--N                                 |</div><div class="line">|       +--O                                 |</div><div class="line">|         +--P                               |</div><div class="line">|         +--Q                               |</div><div class="line">|     +--M                                   |</div><div class="line">+--------------------------------------------+</div><div class="line"><span class="number">17</span> rows <span class="keyword">in</span> set (<span class="number">0.00</span> sec)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>优点 : 层数的显示。并且可以按照树的遍历顺序得到结果。没有递归限制。</li>
+<li>缺点 : MySQL中对临时表的限制，只能使用普通表，需做事后清理。</li>
+</ul>
+</blockquote>
+<p>以上是几个在MySQL中用存储过程比较简单的实现方法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+          
+            <a href="/tags/数据优化/" rel="tag">#数据优化</a>
+          
+            <a href="/tags/迭代查询/" rel="tag">#迭代查询</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/16/sublime插件/" rel="next" title="sublime插件">
+                <i class="fa fa-chevron-left"></i> sublime插件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/08/mysql树状深度搜索/"
+           data-title="mysql树状深度搜索" data-url="http://yoursite.com/2016/10/08/mysql树状深度搜索/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Jemes Zhou" />
+          <p class="site-author-name" itemprop="name">Jemes Zhou</p>
+          <p class="site-description motion-element" itemprop="description">一天一小步,人生一大步。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JemesZhou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3212383780?refer_flag=1001030102_&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.google.com" target="_blank" title="谷歌">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  谷歌
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jemes Zhou</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"JemesZhou"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
