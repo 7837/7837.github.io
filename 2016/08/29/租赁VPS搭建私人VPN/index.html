@@ -345,8 +345,31 @@
 <hr>
 <ol>
 <li>租赁服务器<br>搭建VPN需要网上有详细教程，本文的用以记录个人搭建的经验，方便以后提升逼格。<br>首先需要租赁一个位于国外的服务器，网上可以搜到各种各样的云服务租赁。这里推荐<a href="https://m.do.co/c/b96f567fae48" target="_blank" rel="external">DigitalOcean.</a>,推荐5$一个月的套餐，1TB流量，512M空间（特殊要求除外）。</li>
-<li><p>通过控制台进入刚刚建立的Ubuntu,一次执行以下命令，绑定自己的邮箱，生成josn文件，为搭建vpn做准备：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">sudo apt-get update</div><div class="line">apt-get install python-pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+<li><p>通过控制台进入刚刚建立的Ubuntu/linux,一次执行以下命令，绑定自己的邮箱，生成josn文件，为搭建vpn做准备：</p>
+<figure class="highlight python">
+  <table>
+    <tr>
+      <td class="gutter">
+        <pre>
+        <div class="line"><b>title</b></div>
+        <div class="line">1</div>
+        <div class="line">2</div>
+        <div class="line">3</div>
+        <div class="line">4</div>
+        </pre>
+      </td>
+      <td class="code">
+        <pre>
+        <div class="line">Ubuntu/linux</div>
+        <div class="line">apt-get update/******/yum update</div>
+        <div class="line">sudo apt-get update/******/</div>
+        <div class="line">apt-get install python-pip/******/yum install python-pip</div>
+        <div class="line">pip install shadowsocks/******/pip install shadowsocks</div>
+        </pre>
+      </td>
+    </tr>
+  </table>
+  </figure>
 </li>
 <li><p>修改josn数据，cd到根目录 cd touch /etc/shadowsocks.json ，修改josn数据如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"server_port"</span>:XXX,</div><div class="line">    <span class="string">"local_port"</span>:<span class="number">1080</span>,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"XXXXXX"</span>,</div><div class="line">    <span class="string">"timeout"</span>:<span class="number">600</span>,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
